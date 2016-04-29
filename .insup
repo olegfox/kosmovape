@@ -24,7 +24,7 @@ insales:
 #   theme_id: Insales theme ID
 uploader:
   class: insales
-  theme_id:
+  theme_id: 621401
 
 # Ignore patterns
 # Insup ignore patterns follow the same rules as Git ignore. Remember that the patterns

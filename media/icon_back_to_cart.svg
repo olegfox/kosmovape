@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="10px" height="17px" viewBox="0 0 10 17" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 3.6.1 (26313) - http://www.bohemiancoding.com/sketch -->
+    <title>Rectangle 200 + Rectangle 200 Copy 2</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Welcome" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Order" transform="translate(-50.000000, -115.000000)" fill="#333333">
+            <g id="МУЖСКОЕ-+-ЖЕНСКОЕ-Copy" transform="translate(28.000000, 90.000000)">
+                <g id="Rectangle-200-+-Rectangle-200-Copy-2" transform="translate(27.000000, 33.000000) scale(-1, 1) translate(-27.000000, -33.000000) translate(22.000000, 24.000000)">
+                    <rect id="Rectangle-200-Copy" transform="translate(5.000000, 5.759745) rotate(-45.000000) translate(-5.000000, -5.759745) " x="4" y="-0.240254973" width="2" height="12" rx="2"></rect>
+                    <rect id="Rectangle-200-Copy-2" transform="translate(5.000000, 13.000000) scale(-1, 1) rotate(-45.000000) translate(-5.000000, -13.000000) " x="4" y="7" width="2" height="12" rx="2"></rect>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

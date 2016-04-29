@@ -1,0 +1,5 @@
+<a href="/{% if language.not_default? %}?lang={{ language.locale }}{% endif %}"
+    class="logo"
+>
+    	<img src="{{ 'logo.png' | asset_url }}" alt="{{ account.title }}" />
+</a> 
