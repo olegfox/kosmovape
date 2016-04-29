@@ -1,0 +1,13 @@
+<div class="side-bar columns large-3">
+  <div class="divider"></div>
+  <div class="recent-articles block clearfix colored-links">
+    <h3 class="title">Последние записи</h3>
+    <ul>
+      {% for article in blog.articles limit:10 %}
+      <li class="item">
+        <a href="{{ article.url }}">{{ article.title }}</a> <br/><em>Опубликовано {{ article.created_at | date: "%d.%m.%Y" }}</em>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+</div>

@@ -1,0 +1,208 @@
+<header>
+    <div class="row show-for-medium-up">
+      <div class="columns">{% include 'snippet-breadcrumbs' %}</div>
+    </div>
+    <div class="previous-next row">
+    {% if collection %}
+		{% if collection.previous_product or collection.next_product %}
+		  <div class="previous columns large-3 small-6"> 
+		   {% if collection.previous_product %}<span class="left"><a href="{{collection.previous_product.url}}"><span aria-hidden="true" class="glyph arrow-left"></span> Предыдущий товар</a></span>{% endif %}
+            <div class="border-decoration show-for-large-up"></div>
+          </div>
+		  {% if collection.next_product %}
+		   <div class="next columns large-3 large-offset-6 small-6">
+              <span class="right"><a href="{{collection.next_product.url}}">Следующий товар <span aria-hidden="true" class="glyph arrow-right"></span></a></span>
+            <div class="border-decoration show-for-large-up"></div>
+          </div>
+		  {% endif %} 
+       {% endif %}
+    {% endif %}
+	</div>
+</header>
+<article class="row" itemscope itemtype="http://schema.org/Product">
+    <meta itemprop="url" content="{{ account.url }}{{ product.url }}" />
+    <meta itemprop="image" content="{{ product.first_image.large_url }}" />
+    <div class="left-column left columns large-3"> 
+	<form class="custom cart-form" method="post" action="/cart_items"> 
+        <h1 class="page-title" itemprop="name">{{ product.title }}</h1>
+        {% if settings.product-brand-show %}
+      {% if product.properties.brand.name %}
+        <h2 class="vendor" itemprop="brand">{{product.properties.brand.characteristics.first.name}}</h2>
+        {% endif %} {% endif %}
+        <div class="prices" itemprop="offers" itemscope itemtype="http://schema.org/Offer">    
+          {% if product.available %}
+          <link itemprop="availability" href="http://schema.org/InStock" />
+          {% else %}
+          <link itemprop="availability" href="http://schema.org/OutOfStock" />
+          {% endif %}
+          <p>
+            {% if product.old_price %}
+            <span class="actual-price" itemprop="price" id="price">{{ product.price | money }}</span>&nbsp;<span class="compare-price" id="old-price">{{ product.old_price | money }}</span>
+            {% else %}
+            <span class="actual-price" itemprop="price" id="price">{{ product.price | money }}</span>
+            {% endif %}
+          </p>
+        </div>
+        <div class="show-for-small hide-for-ie9-down">
+          <div class="photos">
+            {% if product.images.size == 1 %}     
+              <div class="container clearfix">
+                 <img src="{{ product.first_image.large_url }}" alt="" />
+              </div>       
+            {% else %}        
+              <div class="container clearfix">
+                {% for image in product.images %}
+                <a class="photo" href="{{image.large_url}}" rel="gallery">
+                  <img src="{{image.large_url}}" alt="{{image.title}}" />
+                </a>
+                {% endfor %}
+              </div>    
+            {% endif %}
+          </div> 
+          <div class="thumbs">
+            {% if product.images.size > 1 %}
+              <ul class="clearfix">
+                {% for image in product.images %}
+                  <li class="thumb columns small-4">
+                    <img src="{{image.thumb_url}}" alt="{{image.title}}" />
+                  </li>
+                {% endfor %}
+              </ul>
+            {% endif %}
+          </div>
+        </div>      
+        {% if product.show_variants? %}
+        <div class="variants">
+          <select id="variant-listbox" name="variant_id" class="medium">
+			  {% for variant in product.variants %}<option value="{{ variant.id }}">{{ variant.title | escape }}</option>{% endfor %}                         
+          </select>
+        </div>
+		{% else %}
+            <input type="hidden" name="variant_id" value="{{ product.variants.first.id }}"/>
+        {% endif %}
+        <div class="quanity-cart-row clearfix">
+          {% include 'snippet-quantity' %}
+          <div class="add-to-cart{% unless product.available %} disabled{% endunless %}">
+            <input type="submit" id="add" value="В Корзину" data-img="{{ product.first_image.thumb_url }}" data-title="{{product.title}}" class="purchase button addtocart">
+            <span class="sold-out long disabled">Нет в наличии</span> 
+          </div>
+        </div>
+        <div class="backorder" class="hidden">
+          <p>{{ settings.back_order_msg | replace: '%s', '<span class="selected-variant"></span>' }}</p>
+        </div>
+    </form>
+      <div class="thumbs show-for-medium-up show-for-ie9-down">
+       {% if product.images.size > 1 %}
+          <ul class="clearfix row">
+            {% for image in product.images %}
+              <li class="thumb columns">
+               <img src="{{image.thumb_url}}" alt="{{image.title}}" />
+              </li>
+            {% endfor %}
+          </ul>
+        {% endif %}
+      </div>
+      <div itemprop="description" class="description show-for-medium-down colored-links rte-content hide-for-ie9-down">
+        {{ product.description }}
+		{% if product.properties.size > 0%}
+		   <ul class="params-list">
+              {%for property in product.properties %}
+              <li> <span>{{property.name }}:</span> {%for item in property.characteristics%}{{item.name}}{% if forloop.last %}{% else %},{% endif %}{%endfor%} </li>
+              {%endfor%}
+            </ul>
+		  {% endif %}
+      </div>
+    </div>  
+    <div class="middle-column photos left columns large-6 show-for-medium-up show-for-ie9-down">
+      {% if product.images.size == 0 %}
+        <div class="container clearfix">
+          <img src="{{ product.first_image.large_url }}"  alt="" />
+        </div>  
+      {% else %}
+        <div class="container clearfix">
+          {% for image in product.images %}
+          <a class="photo" href="{{image.original_url}}" >
+            <img src="{{image.large_url}}" alt="{{image.title}}" />
+          </a>
+          {% endfor %}
+        </div>  
+      {% endif %}
+    </div> 
+    <div class="right-column description columns large-3">
+      <div itemprop="description colored-links rte-content">
+        {{ product.description }}
+		{% if product.properties.size > 0%} 
+		   <ul class="params-list">
+              {%for property in product.properties %}
+              <li> <span>{{property.name }}:</span> {%for item in property.characteristics%}{{item.name}}{% if forloop.last %}{% else %},{% endif %}{%endfor%} </li>
+              {%endfor%}
+            </ul>
+		  {% endif %}
+      </div>
+    </div>
+  </div>
+</article>
+{% if settings.product-share-this-show %}
+<section class="row social-share">
+  <div class="columns">
+    {% include 'snippet-product-share' %}
+  </div>
+</section>
+{% endif %}
+{% if settings.product-similar-products-show %}
+  {% include 'snippet-related-products' %}
+{% endif %}
+{% if product.similar_products.size > 0 %}
+  <section class="similar-products row">
+    <h2 class="title">Аналогичные товары</h2>
+    <div class="product-grid">
+      {% for product in product.similar_products limit:4 %}
+			{% include 'snipet-similar-item' %}
+		{% endfor %}
+    </div>
+  </section>
+{% endif %}
+
+  <script>
+$(function() {
+	var btn = $('.add-to-cart');
+	var price = $('#price');
+	var oldPrice = $('#old-price');
+	//var sku = $("#sku_title");
+
+	{% if product.available == false %} btn.addClass('disabled'); btn.find('input').attr('disabled', 'disabled');{% endif %}
+	var selectCallback = function(variant, selector) {
+      /*if (variant) {
+             if (variant.sku){sku.show(); $("#sku").html(variant.sku); }else {sku.hide();}
+				price.html(InSales.formatMoney(variant.price, cv_currency_format));
+				oldPrice.html(InSales.formatMoney(variant.old_price, cv_currency_format));
+            }else{
+				sku.hide();
+		} */
+		if (variant && variant.available == true){
+			btn.removeClass('disabled');
+			btn.find('input').removeAttr('disabled')
+			price.html(InSales.formatMoney(variant.price, cv_currency_format));
+			oldPrice.html(InSales.formatMoney(variant.old_price, cv_currency_format));
+		}else {
+			if(variant){
+				btn.addClass('disabled');
+				btn.find('input').attr('disabled', 'disabled');
+				price.html(InSales.formatMoney(variant.price, cv_currency_format));
+				oldPrice.html(InSales.formatMoney(variant.old_price, cv_currency_format));
+			} else {
+				btn.addClass('disabled')
+				btn.find('input').attr('disabled', 'disabled');
+				price.html('');
+				oldPrice.html('');
+			}
+		}
+	};
+	new InSales.OptionSelectors('variant-listbox', { product: {{product | json}}, onVariantSelected: selectCallback }); 
+	
+	$(".custom.dropdown").hide();
+    $(".selector-wrapper .single-option-selector").each(Foundation.libs.forms.append_custom_select);
+    $('select.single-option-selector:eq(0)').trigger('change');
+    Foundation.libs.forms.refresh_custom_select($('select.single-option-selector:eq(0)'), true); 
+});
+</script> 

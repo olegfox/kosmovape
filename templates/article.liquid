@@ -1,0 +1,68 @@
+<div class="row show-for-medium-up">
+  <div class="columns large-12">{% include 'snippet-breadcrumbs' %} </div>
+</div>
+<div class="left-two-columns-wrapper row">
+  <div class="article columns large-9">
+    <div class="left-sidebar columns large-3 show-for-large-up">
+      <div class="date block">
+        <h3 class="title">Опубликовано</h3>
+        <p class="content">{{ article.created_at | date: "%d.%m.%Y" }}</p>
+      </div>
+      <div class="author block">
+        <h3 class="title">Автор</h3>
+        <p class="content">{{ article.author }}</p>
+      </div>
+      {% if article.comments_enabled? %}
+      <div class="comments block">
+        <h3 class="title">Комментарии</h3>
+        <p class="content">{{ article.comments_count }}</p>
+      </div>
+      {% endif %}
+	</div>
+    <div class="middle-column columns large-9">
+      <h1 class="title"><a href="{{ article.url }}">{{ article.title }}</a></h1>
+      <p class="mobile-meta show-for-medium-down"> Опубликовано {{ article.author }} - {{ article.created_at | date: "%d.%m.%Y" }} </p>
+      <div class="content colored-links rte-content">{{ article.content }}</div>
+      <div class="share block clearfix"> {% include 'snippet-product-share' %} </div>
+      {% if blog.comments_enabled? %}
+      <div id="comments" class="comments"> {% if article.comments != empty %}
+        <h2 class="title">Комментарии</h3>
+        {% for comment in article.comments %}
+        <div id="comment-{{ comment.id }}" class="comment clearfix">
+          <h3 class="author"><strong>{{ comment.author }}</strong> <br/>
+            <span class="date">{{ comment.created_at | date: "%d.%m.%Y %H:%M" }}</span></h3>
+          <div class="comment-content">{{ comment.content }}</div>
+        </div>
+        {% endfor %}
+        {% endif %}
+        <div class="comment-form"> {% form comment %}
+          <h2 class="title">Оставить комментарий</h2>
+          {% if form.posted_successfully? %}
+          {% if blog.moderated? %}
+          <p class="subtext success">Комментарий успешно отправлен.<br />
+            Он будет промодерирован владельцем блога перед публикацией.</p>
+          {% else %}
+          <p class="subtext success">Комментрий успешно добавлен. Спасибо.</p>
+          {% endif %}
+          {% endif %}
+          {% if comment.errors.size > 0 %}
+          <p class="subtext error">Не все поля заполнены правильно!</p>
+          {% endif %}
+          <label for="comment_author">Ваше имя</label>
+          <input type="text" id="comment_author" name="comment[author]" size="40" value="{{comment.author}}" class="text{% if comment.errors contains 'author' %} input-error{% endif %}" />
+          <label for="comment_email">Ваш Email</label>
+          <input type="text" id="comment_email" name="comment[email]" size="40" value="{{comment.email}}" class="text{% if comment.errors contains 'email' %} input-error{% endif %}" />
+          <label for="comment_body">Комментарий</label>
+          <textarea id="comment_body" name="comment[content]" cols="40" rows="10" class="text{% if comment.errors contains 'content' %} input-error{% endif %}">{{comment.content}}</textarea>
+          <input type="submit" value="Отправить" class="button" id="comment-submit" />
+          {% if blog.moderated? %}
+          <div class="notice">Перед публикацией комментарии проходят модерацию</div>
+          {% endif %}
+          {% endform %}
+		</div>
+      </div>
+      {% endif %}
+	</div>
+  </div>
+  {% include 'snippet-blog-sidebar' %}
+</div>

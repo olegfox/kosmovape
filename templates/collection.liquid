@@ -1,0 +1,88 @@
+
+
+
+
+ {% if collection.subcollections.size > 0 %}
+<header class="row">
+  <div class="left columns large-6">
+    <h1 class="page-title">{{collection.title}}</h1>   
+  </div>
+</header>
+<div class="row">
+ 
+  <div class="collections-grid clearfix">
+    {% for subcollection in collection.subcollections  %}
+        {% include 'snippet-collection-item' %}
+    {% endfor %}
+  </div>
+ 
+</div>
+ 
+{% else %}
+
+
+{% paginate collection.products by 12 %}
+<header class="row">
+  <div class="left columns large-6">
+     <h1 class="page-title">{{ collection.title }}</h1> 
+      {% include 'snippet-breadcrumbs' %}
+  </div>
+  {% if products.size > 0 %}
+  <div class="right columns large-6">
+    <div class="tag-filter">
+          <span class="title">Сортировать | </span>
+           <form method="get" class="custom" id="sort-form" action="{{collection.url}}">
+		   {% if language.not_default? %}<input type="hidden" name="lang" value="{{ language.locale }}">{% endif %}
+            <select class="small tags-listbox" name="order" size="1" onchange="$('#sort-form').submit();"> 
+				{{ "" | select_option: order, "по умолчанию" }}
+				{{ "price"  | select_option: order, "по возрастанию цены" }}
+				{{ "descending_price"  | select_option: order, "по убыванию цены" }}
+				{{ "title"  | select_option: order, "по наименованию" }}  			
+            </select>
+             <div class="cat-variants">
+		{% for property in collection.properties %}
+            <div class="product-options">
+            <select onchange="$('#sort-form').submit();" name="characteristics[]">
+              <option value="{{property.name}}">{{property.name}}</option>
+              {% for characteristic in property.characteristics %}
+                <option value="{{characteristic.id}}" {% if characteristic.current? %} selected="selected" {% endif %}>{{characteristic.name}}</option>
+              {% endfor %}
+            </select>
+			</div>
+          {% endfor%}
+             </div> 
+          </form>
+    </div>
+  </div>
+  {% endif %}
+</header>
+<div class="row">
+  <div class="columns">
+    <div class="divider"></div>
+  </div>
+</div>
+<div class="row">
+  {% if collection.description %}<article class="description columns">{{ collection.description }}</article>{% endif %}
+  {% if products.size > 0 %}
+		<section class="row">
+		  <div class="product-grid clearfix">
+			{% for product in collection.products %}
+			  {% include 'snippet-product-item' %}
+			{% endfor %}
+		  </div>
+		</section>
+	{% else %}
+  {% unless collection.subcollections.size > 0 %}{% include 'snippet-default-products' %}{% endunless %}
+    {% endif %}
+</div>
+<div class="row">
+  <div class="columns">
+    <div class="divider bottom-margin"></div>
+  </div>
+</div>
+<footer class="row">
+  <div class="left columns large-6">{% include 'snippet-breadcrumbs' %}</div>
+  <div class="right columns large-6">{% include 'snippet-pagination' %}</div>
+</footer>
+{% endpaginate %}
+{% endif %}

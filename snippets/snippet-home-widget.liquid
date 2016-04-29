@@ -1,0 +1,121 @@
+{% assign type = widget | append: '-type' %}
+
+{% assign type = settings[type] %}
+
+{% if type == 'image' %}
+	{% assign widget_image = widget | append: '.png' %}
+	{% capture widget_link %}{{ widget }}-link{% endcapture %}
+	{% assign widget_link = settings[widget_link] %}
+	{% capture widget_alt %}{{ widget }}-alt{% endcapture %}
+	{% assign widget_alt = settings[widget_alt] %}
+	
+	<div class="image-widget">
+		{% if widget_link != empty %}
+		<a href="{{widget_link}}"><img src="{{widget_image | asset_url}}" alt=""></a>
+	  {% else %}
+	    <img src="{{widget_image | asset_url}}" alt="">
+	  {% endif %}
+	</div>
+
+{% elsif type == 'text' %}
+	{% assign widget_title = widget | append: "-title" %}
+	{% assign widget_title = settings[widget_title] %}
+	{% assign widget_description = widget | append: "-description"%}
+	{% assign widget_description = settings[widget_description] %}
+	{% assign widget_link_text = widget | append: "-link-text" %}
+	{% assign widget_link_text = settings[widget_link_text] %}
+	{% assign widget_link_url = widget | append: "-link-url" %}
+	{% assign widget_link_url = settings[widget_link_url] %}
+
+	<div class="text-widget">
+	  {% if widget_title.size > 0 %} <h3 class="title show-for-large-up">{{ widget_title }}</h3>{% endif %}
+	  <div class="description">{{ widget_description | newline_to_br  }}
+			{% if widget_link_text.size > 0 %}
+				<p class="call-to-action">
+			 		<a class="button" href="{{ widget_link_url }}">{{ widget_link_text }}</a> 
+				<p>
+			{% endif %}
+	  </div>
+	</div>
+ 
+{% elsif type == 'image-text' %}
+	{% assign widget_image = widget | append: '.png' %}
+	{% assign widget_alt = widget | append: "-alt" %}
+	{% assign widget_alt = settings[widget_alt] %}
+	{% assign widget_title = widget | append: "-title" %}
+	{% assign widget_title = settings[widget_title] %}
+	{% assign widget_sub_title = widget | append: "-sub-title" %}
+	{% assign widget_sub_title = settings[widget_sub_title] %}
+	{% assign widget_link_url = widget | append: "-link" %}
+	{% assign widget_link_url = settings[widget_link_url] %}
+
+	<div class="image-text-widget">
+
+	  {% if widget_link_url.size > 0 %}
+	    <a href="{{ widget_link_url }}">
+	  {% endif %}
+
+		{% if widget_image.size > 0 %}
+	  	<img src="{{ widget_image | asset_url}}" alt=""> 
+	  {% endif %}
+
+	  {% if widget_title.size > 0 or widget_sub_title.size > 0 %}
+	    <div class="caption">
+	    	<div class="bg"></div>
+	      <div class="inner">
+	        {% if widget_title.size > 0 %}
+	          <h1>{{ widget_title }}</h1>
+	        {% endif %}
+	        {% if widget_sub_title.size > 0 %}
+	          <h2>{{ widget_sub_title }}</h2>
+	        {% endif %}
+	      </div>
+	    </div>
+	  {% endif %}
+
+	  {% if widget_link_url.size > 0 %}
+	    </a>
+	  {% endif %}
+	</div>
+
+{% elsif type == 'twitter' %}
+	{% assign widget_username = widget | append: "-username" %}
+	{% assign widget_username = settings[widget_username] %}
+
+	<div class="twitter-widget">
+	  <h3 class="title"><a href="http://twitter.com/{{ widget_username }}">Twitter</a></h3>
+    <a class="twitter-timeline" href="https://twitter.com/{{ widget_username }}" data-widget-id="363089487741460480" data-link-color="{{ settings.color-link }}" data-chrome="nofooter transparent noheader noscrollbar noborders" data-theme="{{ settings.color-twitter-tone }}" data-screen-name="{{ widget_username }}" width="300" data-tweet-limit="3"></a>
+
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+  </div>
+
+{% elsif type == 'instagram' %}
+
+	{% assign widget_username = widget | append: "-username" %}
+	{% assign widget_username = settings[widget_username] %}
+	<div class="instagram-widget">
+		<h3 class="title"><a href="http://instagram.com/{{ widget_username }}">Instagram</a></h3>
+
+		<iframe class="iframe" src="http://widget.stagram.com/in/{{ widget_username }}/?s=150&w=2&h=2&b=0&p=15" allowtransparency="true" frameborder="0" scrolling="no"  ></iframe>
+	</div>
+{% elsif type == 'blog' %}
+	<div class="blog-widget">
+    <h3 class="title"><a href="{{blog.url}}">Записи в блоге</a></h3>
+    {% if blog.articles.size > 0 %}
+    <ul class="colored-links">
+    {% for article in blog.articles limit: 2 %}
+      <li>
+        <div class="item-title">{{ article.title }}</div>
+        <div class="date">{{ article.created_at | date: "%d.%m.%Y" }}</div>
+        <div class="content">
+        	{{ article.preview | strip_html | truncate: 120 }}
+        </div>
+        <div class="read-more"><a href="{{ article.url }}">Подробнее <span aria-hidden="true" class="glyph arrow-right"></span></a></div>
+      </li>
+    {% endfor %}
+    </ul>
+      {% else %}
+      <p class="center">нет записаей</p>
+      {% endif %}
+  </div>
+{% endif %}

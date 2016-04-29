@@ -1,0 +1,262 @@
+<!doctype html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]> <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]> <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if IE 9]> <html class="ie9 no-js"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+<title>{{ title }}</title>
+<meta name="description" content="{{ description }}">
+<meta name="keywords" content="{{ keywords }}">
+<meta name="robots" content="index,follow">
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width" />
+ {% for blog in blogs %}
+  <link rel="alternate" type="application/rss+xml" title="{{account.title}}" href="{{account.url}}/{{blog.url}}.atom">
+  {% endfor %}
+{% if template == 'collection' %}<link rel="canonical" href="{{account.url}}{{collection.url}}">{% elsif template == 'product' %}<link rel="canonical" href="{{account.url}}{{product.canonical_url}}">{% endif %}
+{% case template %}
+{% when 'product' %}
+<meta property="og:title" content="{{product.title | strip_html }}">
+<meta property="og:description" content="{{product.short_description | strip_html | truncate: 150}}">
+<meta property="og:type" content="product">
+<meta property="og:url" content="{{ account.url }}{{ product.url }}">
+<meta property="og:image" content="{{ product.first_image.compact_url }}">
+{% when 'article' %}
+<meta property="og:title" content="{{article.title | strip_html }}">
+<meta property="og:description" content="{{article.preview | strip_html | truncate: 150}}">
+<meta property="og:type" content="article">
+<meta property="og:url" content="{{ account.url }}{{ article.url }}">
+{% if article.image.compact_url != '/images/no_image_compact.jpg' %}
+<meta property="og:image" content="{{ article.image.compact_url }}">
+{% endif %}
+{% endcase %}
+<meta property="og:site_name" content="{{ account.title }}">
+{% if settings.general-favicon-enabled %}<link rel="shortcut icon" type="image/png" href="{{ 'favicon.png' | asset_url }}" />{% endif %}
+<link rel="canonical" href="{{ canonical_url }}" />
+{% include 'snippet-fb-open-graph-tags' %} 
+{% include 'snippet-webfont' %}
+<link rel="stylesheet" href="{{'style.css' | asset_url}}" type="text/css">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]--> 
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+<script src="{{ 'shop/common.js' | global_asset_url }}"></script>
+{% if template == 'cart' %}<script src="{{ 'shop/cart.js' | global_asset_url }}"></script>{% endif %}
+<script>var cv_currency_format = "{{money_with_currency_format}}";</script> 
+  <script>
+    var twitterID = '{{ settings.twitter_username }}',
+    shop_url = '{{ account.url }}',
+    home_slider_auto_enabled = {{ settings.home-slider-auto-enabled }},
+    home_slider_rotate_frequency = {{ settings.home-slider-rotate-frequency }};
+  </script>
+
+</head>
+
+
+<body class="page-{{ page_title | handle }} template-{{ template | split: '.' | first | remove: '/' | remove: '_' }}{% if settings.home-slider-show and template == 'index' %} with-slider{% endif %} {% if template == 'collection'%} {% if collection.subcollections.size > 0 %}template-list-collections{% endif %}{% endif %}">
+
+  <header class="main-header">
+    <div class="row top">
+      <div class="large-2 medium-6 small-12 columns">
+        {% include 'snippet-store-title' %}
+      </div>
+<div class="header-bannerz columns large-8 show-for-medium-up">
+          <div class="contactz bannerz ">
+            	<div class="iconz"></div>
+            	<div class="tel">{{account.phone}}</div>
+            		<div>Звоните с 11:00 по 23:00</div>
+          </div>
+  
+
+          </div>
+      <div class="search-account large-2 medium-6 columns">
+        {% include 'snippet-searchbar-account' %}
+      </div>
+      
+    </div><!-- .row -->
+
+    <div class="bottom-row">
+      <div class="row">
+        <div class="columns menu-container">  
+          {% include 'snippet-main-menu' %}
+        </div>
+        
+        <div class="columns cart-container"> 
+          {% include 'snippet-cart' %}
+        </div>
+
+        <div class="mobile-tools">
+            <a class="glyph menu" href=""></a> 
+            <a href="/search" class="glyph search"></a>      
+            <a href="/client_account/login" class="glyph account"></a>
+            <a href="/cart_items/" class="glyph cart"></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="main-menu-dropdown-panel">
+      <div class="row">
+      
+      </div>
+    </div>
+
+    <div class="mobile-menu">
+      {% include 'snippet-mobile-menu' %}
+    </div>
+
+    <div class="row">
+      <div class="header-divider"></div>
+    </div>
+
+  </header>
+
+  <section class="main-content">
+    
+      {{ content_for_layout }}
+  </section>
+  <footer class="store-footer row">
+    <div class="mini-wrap mini-wrap__overflow">
+        <div class="store-footer__logo columns large-3 show-for-medium-up">
+
+              <a class="store-footer__logo__image" href="/" role="banner" title="{{ account.title }}">
+		<img src="{{ 'logo-footer.png' | asset_url }}" data-retina="{{ 'logo-retina-footer.png' | asset_url }}" alt="{{ account.title }}"> 
+    </a>
+        </div>
+        <div class="centered store-footer__float-left store-footer__center columns large-6 medium-12 small-12">
+            <div class="store-footer__upper-links">
+              {% for link in linklists.footer.links %}
+                <a class="store-footer__info-link" href="{{link.url}}" rel="nofollow">
+                    {{link.title}}
+                </a>
+              {% endfor %}
+            </div>
+            <div class="centered store-footer__white-menu">
+                <a class="store-footer__phone" href="tel:88005006461" rel="nofollow">
+                    {{account.phone}}
+                </a>
+                <span class="store-footer__hours-of-operations">
+                    {{settings.open-days}}
+                </span>
+                <a class="store-footer__store-mail" href="mailto:hello@tattooport.ru" rel="nofollow">
+                    {{account.email}}
+                </a>
+            </div>
+        </div>
+        <div class="store-footer__social-links  columns large-3 show-for-medium-up">
+			<a target="_blank" class="social-button social-button--inst" href="https://www.instagram.com/kosmovape/" title="Наш блог в Instagram" rel="nofollow"></a>
+			<a target="_blank" class="social-button social-button--vk" href="http://vk.com/kosmovape" title="Наша группа VK" rel="nofollow"></a>
+        </div>
+    </div>
+</footer>
+	{% comment %}
+  
+  <footer class="main-footer">
+
+    <div class="row bottom">
+      <div class="column-1 large-4 columns">
+        <h2 class="title">{{ settings.footer-block-1-title }}</h2>
+        <div class="content">
+          <p class="text">{{ settings.footer-block-1-text | newline_to_br }}</p>
+        </div>
+
+      </div>
+      <div class="column-2 large-4 columns">
+        <h2 class="title">{{ linklists.footer.title }}</h2>
+        
+        <div class="content">
+
+          <ul class="footer-nav plain-list" role="navigation">
+          {% for link in linklists.footer.links %}
+            <li><a href="{{ link.url }}" title="{{ link.title }}"{% if link.current? %} class="active"{% endif %}>{{ link.title }}</a></li>
+          {% endfor %}
+          </ul>
+          
+        </div>
+
+      </div>
+
+
+      <div class="column-3 large-4 columns">
+        {% if settings.footer-mailing-list-show %}
+          
+            <h2 class="title">{{ settings.footer-mailing-list-title }}</h2>
+
+          <div class="content" id="mailing-list-module">
+            {% if settings.footer-mailing-list-tag-line != '' %}
+              <p>{{ settings.footer-mailing-list-tag-line }}</p>
+            {% endif %}
+
+            
+              <form action="{{ settings.footer-mailing-list-form-action }}" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="mailchimp-form validate" target="_blank">
+                <div class="row collapse">
+                  <div class="small-10 columns" style="padding-right: 10px;">
+                    <input type="email" placeholder="Ваш Email" name="EMAIL" id="email-input" />
+                  </div>
+                  <div class="small-2 columns">
+                    <input type="submit" class="button prefix" value="OK" name="subscribe" id="email-submit" />
+                  </div>
+                </div>
+              </form>
+          {% endif %}
+            
+            {% if settings.footer-social-options-show%}
+          <div class="social-follow">
+            {% if settings.footer-facebook-follow-url.size > 0 %}<a title="facebook" aria-hidden="true" target="_blank" class="glyph facebook" href="{{ settings.footer-facebook-follow-url }}"></a>{% endif %}
+            {% if settings.footer-twitter-follow-url.size > 0 %}<a title="twitter" aria-hidden="true" target="_blank" class="glyph twitter" href="{{ settings.footer-twitter-follow-url }}"></a>{% endif %}
+            {% if settings.footer-instagram-follow-url.size > 0 %}<a title="instagram" aria-hidden="true" target="_blank" class="glyph instagram" href="{{ settings.footer-instagram-follow-url }}"></a>{% endif %}
+            {% if settings.footer-pinterest-follow-url.size > 0 %}<a title="pinterest" aria-hidden="true" target="_blank" class="glyph pinterest" href="{{ settings.footer-pinterest-follow-url }}"></a>{% endif %}
+            {% if settings.footer-tumblr-follow-url.size > 0 %}<a title="tumblr" aria-hidden="true" target="_blank" class="glyph tumblr" href="{{ settings.footer-tumblr-follow-url }}"></a>{% endif %}
+            {% if settings.footer-vimeo-follow-url.size > 0 %}<a title="vimeo" aria-hidden="true" target="_blank" class="glyph vimeo" href="{{ settings.footer-vimeo-follow-url }}"></a>{% endif %}
+            {% if settings.footer-youtube-follow-url.size > 0 %}<a title="youtube" aria-hidden="true" target="_blank" class="glyph youtube" href="{{ settings.footer-youtube-follow-url }}"></a>{% endif %}
+            {% if settings.footer-rss-follow-url.size > 0 %}<a title="rss" aria-hidden="true" target="_blank" class="glyph feed" href="{{ settings.footer-rss-follow-url }}"></a>{% endif %}
+          </div>
+            {% endif %}
+        </div> 
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="columns">
+        {% if settings.footer-payment-options-show %} 
+          <ul class="payment-options">
+            {% if settings.footer-payment-amex %}<li aria-hidden="true" class="glyph amex"></li>{% endif %}
+            {% if settings.footer-payment-diners %}<li aria-hidden="true" class="glyph diners"></li>{% endif %}
+            {% if settings.footer-payment-discover %}<li aria-hidden="true" class="glyph discover"></li>{% endif %}
+            {% if settings.footer-payment-visa %}<li aria-hidden="true" class="glyph visa"></li>{% endif %}
+            {% if settings.footer-payment-mastercard %}<li aria-hidden="true" class="glyph mastercard"></li>{% endif %}
+            {% if settings.footer-payment-skrill %}<li aria-hidden="true" class="glyph moneybookers"></li>{% endif %}
+            {% if settings.footer-payment-stripe %}<li aria-hidden="true" class="glyph stripe"></li>{% endif %}
+            {% if settings.footer-payment-switch %}<li aria-hidden="true" class="glyph switch"></li>{% endif %}
+            {% if settings.footer-payment-paypal %}<li aria-hidden="true" class="glyph paypal"></li>{% endif %}
+            {% if settings.footer-payment-googlewallet %}<li aria-hidden="true" class="glyph googlewallet"></li>{% endif %}
+          </ul>
+        {% endif %}
+      </div>
+    </div>
+  </footer>
+  {% endcomment %}
+<script src="{{ 'plugins.js' | asset_url }}"></script>
+<script src="{{ 'shop.js' | asset_url }}"></script> 
+<script>
+function is_touch_device() {
+return !!('ontouchstart' in window)
+|| !!('onmsgesturechange' in window);
+};
+$(document).ready(function() {
+if (is_touch_device()) {
+  $('form.custom .hidden-field').removeClass('hidden-field');
+  $('#sort-form .custom.dropdown, .cart-form .custom.dropdown').remove();
+}
+
+$(".tabheader a").on('click', function(e) {
+	e.preventDefault();
+  	$(".tabpanel").removeClass("active");
+  	$($(this).attr('href')).addClass("active");
+  	$(".tabheader a").removeClass("active");
+  	$(this).addClass("active");
+});
+})
+</script>
+</body>
+</html>

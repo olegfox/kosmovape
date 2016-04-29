@@ -1,0 +1,14 @@
+{% if template contains 'product' %}
+  <meta property="og:url" content="{{ account.url }}{{ product.url }}" />
+  <meta property="og:title" content="{{ product.title }}" />
+  <meta property="og:description" content="{{ product.description | newline_to_br | strip_html | escape  }}" />
+  <meta property="og:image" content="{{ product.first_image.medium_url }}" />
+{% elsif template contains 'article' %}
+  <meta property="og:url" content="{{ account.url }}{{ article.url }}" />
+  <meta property="og:title" content="{{ article.title }}" />
+  <meta property="og:description" content="{{ article.preview | newline_to_br | strip_html | escape  }}" />
+{% else %}
+  {% if settings.use_logo %}
+    <meta property="og:image" content="{{ 'logo.png' | asset_url }}" />
+  {% endif %}
+{% endif %}

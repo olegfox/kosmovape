@@ -1,0 +1,46 @@
+<nav role="navigation">
+  <ul id="nav" class="font-nav">
+    {% for link in linklists.main-menu.links %}
+		{% if link.url == '/collection/all' %}
+			<li class="nav-item dropdown"><a class="dropdown-link" href="{{ link.url }}">{{ link.title }} <span aria-hidden="true" class="glyph plus"></span><span aria-hidden="true" class="glyph minus"></span></a>    
+				<ul class="sub-nav catalog"><li class="bg"></li>
+					
+						<li class="sub-nav-item">
+							<a class="dropdown-link" href="">Каталог товаров <span aria-hidden="true" class="glyph plus"></span><span aria-hidden="true" class="glyph minus"></span></a>
+							<ul class="sub-nav"><li class="bg"></li>
+							 {% for collection in collections %}<li><a href="{{collection.url}}"{% if collection.current? %} class="active"{% endif %}>{{collection.title}}</a></li>{% endfor %}
+							</ul>
+						</li>
+					{% if linklists.sub-menu-b.links.size > 0 %}
+						<li class="sub-nav-item">
+							<a class="dropdown-link" href="">{{ linklists.sub-menu-b.title }} <span aria-hidden="true" class="glyph plus"></span><span aria-hidden="true" class="glyph minus"></span></a>
+							<ul class="sub-nav"><li class="bg"></li>
+							 {% for link in linklists.sub-menu-b.links %}<li><a href="{{link.url}}">{{ link.title }}</a></li>{% endfor %}
+							</ul>
+						</li>
+					{% endif %}
+					{% if linklists.sub-menu-c.links.size > 0 %}
+						<li class="sub-nav-item">
+							<a class="dropdown-link" href="">{{ linklists.sub-menu-c.title }} <span aria-hidden="true" class="glyph plus"></span><span aria-hidden="true" class="glyph minus"></span></a>
+							<ul class="sub-nav"><li class="bg"></li>
+							 {% for link in linklists.sub-menu-c.links %}<li><a href="{{link.url}}">{{ link.title }}</a></li>{% endfor %}
+							</ul>
+						</li>
+					{% endif %}
+					{% if linklists.sub-menu-d.links.size > 0 %}
+						<li class="sub-nav-item">
+							<a class="dropdown-link" href="">{{ linklists.sub-menu-d.title }} <span aria-hidden="true" class="glyph plus"></span><span aria-hidden="true" class="glyph minus"></span></a>
+							<ul class="sub-nav"><li class="bg"></li>
+							 {% for link in linklists.sub-menu-d.links %}<li><a href="{{link.url}}">{{ link.title }}</a></li>{% endfor %}
+							</ul>
+						</li>
+					{% endif %}
+				</ul>
+			</li>
+        {% else %}
+			<li class="nav-item"><a class="nav-item-link" href="{{ link.url }}">{{ link.title }}</a></li>
+        {% endif %}
+      </li>
+    {% endfor %}
+  </ul>
+</nav>

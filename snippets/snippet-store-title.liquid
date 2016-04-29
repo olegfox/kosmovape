@@ -1,0 +1,9 @@
+<h1 class="title clearfix" role="banner">
+  {% if settings.header-logo-show %}
+    <a href="/" role="banner" title="{{ account.title }}">
+		<img src="{{ 'logo.png' | asset_url }}" data-retina="{{ 'logo-retina.png' | asset_url }}" alt="{{ account.title }}"> 
+    </a>
+  {% else %}
+    <a href="/">{{ account.title }}</a>
+  {% endif %}
+</h1>

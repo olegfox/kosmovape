@@ -1,0 +1,20 @@
+<div class="collection-item columns large-4">
+  <a href="{{ subcollection.url }}">
+    <div class="image-wrapper">
+      <div class="hover"></div>
+      {% if collection.image %}
+		<img src="{{ subcollection.image.large_url }}" alt="{{subcollection.title}}">
+      {% else %}
+		<img src="{{ subcollection.product.first_image.large_url }}" alt="{{subcollection.title}}">       
+      {% endif %}
+    </div>
+    <div class="caption">
+      <div class="bg"></div>
+      <div class="inner">
+        <div class="title">{{ subcollection.title }}</div>
+        <p class="product-count">{% if subcollection.products_count > 0 %}Наименований: {{ subcollection.products_count }}{% else %}нет товаров{% endif %}</p>
+      </div>
+    </div>
+  </a>
+</div>
+{% cycle 'clear-row': '', '', '<div class="clearfix"></div>' %}

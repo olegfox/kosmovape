@@ -1,0 +1,27 @@
+<div class="cart">   <a href="/client_account/login" class="glyph account"></a>
+  <a class="cart-link" href="/cart_items"><span class="number"></span><span aria-hidden="true" class="glyph cart"></span></a>
+  <div class="recently-added">
+    <table width="100%">
+      <thead>
+        <tr>
+          <td colspan="3">Товар добавлен в корзину</td>
+        </tr>
+      </thead>
+      <tbody>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td class="items-count"><a href="/cart_items"><span class="number">{{ cart.item_count }}</span> шт.</a></td>
+          <td colspan="2" class="text-right"><strong>К оплате <span class="total-price" style="margin-left:5px;">{{ cart.total_price | money }}</span></strong></td>
+          <td></td>
+        </tr>
+      </tfoot>
+    </table>
+    <div class="row">
+      <div class="checkout columns"> <a class="button" href="/cart_items">Перейти в корзину</a> </div>
+    </div>
+    <div class="error">
+      <p>Возникла ошибка. Товар в корзину не добавлен.</p>
+    </div>
+  </div>
+</div>

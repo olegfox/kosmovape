@@ -1,0 +1,21 @@
+<div class="product-item columns large-3">
+    <div class="image-wrapper">
+      {% if product.available == false %}
+        <div class="circle sold-out">Продано</div>
+      {% elsif product.old_price%}  
+      {% unless product.price_varies? %}<a class="circle sale" href="{{ product.url }}">- {{product.old_price | minus: product.sale_price | times: 100 | divided_by: product.old_price | round: 0}} %</a>{% endunless %}
+      {% endif %} 
+      <a href="{{ product.url | within: collection }}">
+        <img {% if product_slider %}class="lazyOwl" data-src="{{ product.first_image.large_url }}"{% endif%} src="{{ product.first_image.large_url }}" alt="{{product.title}}" />
+      </a>
+    </div> 
+    <div class="caption">
+      <p class="title"><a href="{{ product.url }}">{{ product.title | truncate:30 }}</a></p>
+      
+     <p class="price">{% if product.price_varies? %}от {{ product.price_min | money }}{% else %}{{ product.sale_price | money }}{% endif %}{% unless product.price_varies? %}{% if product.old_price %}<em class="marked-down-from"> {{product.old_price | money }}</em>{% endif %}{% endunless %}</p>
+      
+      
+     
+    </div> 
+</div>
+{% cycle 'category': '', '', '', '<div class="clearfix"></div>' %}

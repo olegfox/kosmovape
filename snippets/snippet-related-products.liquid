@@ -1,0 +1,10 @@
+{% if product.related_products.size > 0  %}
+  <section class="similar-products row">
+    <h2 class="title">Сопутствующие товары</h2>
+    <div class="product-grid">
+		{% for product in product.related_products limit:4 %} 
+			{% include 'snippet-product-item' %}
+		{% endfor %}
+    </div>
+  </section>
+{% endif %}

@@ -1,0 +1,57 @@
+<script type="text/javascript" src="{{ 'instafeed.min.js' | asset_url }}"></script>
+
+<section class="home-instagram wow fadeIn" data-wow-delay="{{ settings.time_lazy_load }}ms">
+  <div class="container">
+    <div class="widget-title">   
+        <h3>{{ settings.instagram_title | split: '|' | first }}</h3>
+
+      
+      {% if settings.instagram_des != blank %}
+        {% if settings.enable_multilang %}
+        <p class="instagram-des lang1"><span>&nbsp;</span>{{ settings.instagram_des | split: '|' | first }}</p>
+        <p class="instagram-des lang2"><span>&nbsp;</span>{{ settings.instagram_des | split: '|' | last }}</p>
+        {% else %}
+        <p class="instagram-des"><span class="social-button social-button--inst">&nbsp;</span>{{ settings.instagram_des | split: '|' | first }}</p>
+        {% endif %}
+      {% endif %}
+    </div>
+    
+    <div id="instafeed" class="row"></div>  
+    {% if settings.display_instagram_button and settings.instagram_button_text != blank %}
+      {% if settings.enable_multilang %}
+      <a href="{{ settings.instagram_button_link }}" title="{{ settings.instagram_button_text | split: '|' | first }}" class="btn lang1">
+        {{ settings.instagram_button_text | split: '|' | first }}
+      </a>    
+      <a href="{{ settings.instagram_button_link }}" title="{{ settings.instagram_button_text | split: '|' | last }}" class="btn lang2">
+        {{ settings.instagram_button_text | split: '|' | last }}
+      </a>
+      {% else %}
+      <a href="{{ settings.instagram_button_link }}" title="{{ settings.instagram_button_text | split: '|' | first }}" class="button btn">
+        {{ settings.instagram_button_text | split: '|' | first }}
+      </a> 
+      {% endif %}
+    {% endif %}
+  </div>
+</section>
+
+<script>
+  var feed = new Instafeed({
+    get: "user",    
+    {% if settings.instagram_tag != blank %} tagName: "{{ settings.instagram_tag }}", {% endif %}
+    {% if settings.locationId != blank %} locationId: "{{ settings.instagram_locationId }}", {% endif %}
+    {% if settings.user-id != blank %} userId: {{ settings.user-id }}, {% endif %}
+    {% if settings.accessToken != blank %}accessToken: '{{ settings.accessToken }}', {% endif %}
+    resolution: "{{ settings.resolution_images }}",
+    clientId: "{{ settings.client-id }}",
+    limit: "{{ settings.limit }}",
+    after: function() {
+      jQuery("#instafeed").owlCarousel({
+    	navigation : true,
+    	items: {{ settings.images_per_row }},
+    	itemsTablet: [768,3],
+    	itemsTabletSmall: [650,2]
+  	  });
+  	}
+  });
+  feed.run();
+</script>

@@ -1,0 +1,25 @@
+{% if template != 'index' %}  
+<ul class="breadcrumbs colored-links"> 
+  <li><a href="/">Главная</a></li>
+  {% case template %}  
+  {% when 'page' %}<li>{{page.title}}</li>
+  {% when 'search' %}<li>Поиск</li>
+  {% when 'blog' %}<li>Блог</li>
+  {% when 'article' %}<li><a href="{{blog.url}}">Блог</a></li> <li>{{article.title}}</li>
+  {% when 'cart' %}<li>Корзина</li>
+ {% endcase %}  
+  {% if current_collections != empty %}
+    {% for collection in current_collections %}
+     {% if collection.level > 0 %}
+      {% if forloop.last and template == 'collection' %}
+		<li>{{collection.title}}</li>
+      {% else %}
+       <li><a href="{{ collection.url }}">{{ collection.title }}</a></li>
+      {% endif %}
+     {% endif %}  
+    {% endfor %}
+  {% endif %}
+  {% if template == 'product' %}<li>{{product.title}}</li>{% endif %}
+  {% if template == 'compare' %}<li>Сравнение товаров</li>{% endif %}   
+</ul>
+{% endif %} 

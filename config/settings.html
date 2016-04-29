@@ -1,0 +1,1247 @@
+<a style="margin: 10px; color: #000; text-align: right; display: block; " href="http://support.insales.ru/hc/ru/articles/203319214-Deli-shop" target="_blank">Возможности настроек темы</a>
+<fieldset>
+  <legend>Основные</legend>
+  <table>
+    <tr>
+      <td><label for="open-days">Режим работы</label></td>
+      <td colspan="3"><input type="text" id="open-days" name="open-days" value="ПН-ПТ С 10:00 ДО 18:00"/></td>
+    </tr>
+    <tr>
+      <td colspan="2"><strong>Favicon</strong>
+        <hr></td>
+    </tr>
+    <tr>
+      <th><label for="general-favicon-enabled">использовать?</label></th>
+      <td><input type="checkbox" id="general-favicon-enabled" name="general-favicon-enabled" value="" /></td>
+    </tr>
+    <tr>
+      <th><label for="general-favicon-image">загрузить свой<br />
+          <small>(32px x 32px)</small></label></th>
+      <td><input type="file" id="general-favicon-image" name="favicon.png" data-max-width="32" data-max-height="32" /></td>
+    </tr>
+    <tr>
+      <td colspan="2"><strong>Фоновое изображние</strong>
+        <hr></td>
+    </tr>
+    <tr>
+      <th><label for="general-bg-image-enabled">использовать ?</label></th>
+      <td><input type="checkbox" id="general-bg-image-enabled" name="general-bg-image-enabled" value="" /></td>
+    </tr>
+    <tr>
+      <th><label for="general-bg-image">загрузить изображение</label></th>
+      <td><input type="file" id="general-bg-image" name="bg-custom.png" /></td>
+    </tr>
+    <tr>
+      <th><label for="general-bg-image-display">стиль</label></th>
+      <td><input type="radio" name="general-bg-image-display" value="tiled" />
+        повторять
+        <input type="radio" name="general-bg-image-display" value="full" />
+        не повторять
+        <input type="radio" name="general-bg-image-display" value="stretch" />
+        растягивать </td>
+    </tr>
+  </table>
+</fieldset>
+<fieldset>
+  <legend>Типография</legend>
+  <table>
+    <tr>
+      <td><label for="font-logo">Название магазина</label></td>
+      <td><select name="font-logo" id="font-logo">
+          <optgroup label="Sans-serif">
+          <option value="'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif">Helvetica/Arial</option>
+          <option value="Impact, Charcoal, Helvetica, Arial, sans-serif">Impact</option>
+          <option value="'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', Lucida, Helvetica, Arial, sans-serif">Lucida Grande</option>
+          <option value="Trebuchet MS, Helvetica, sans-serif">Trebuchet MS</option>
+          <option value="Verdana, Helvetica, Arial, sans-serif">Verdana</option>
+          <option selected="selected" value="google, 'Lato', sans-serif">Lato</option>
+          <option value="google, 'Roboto', sans-serif">Roboto</option>
+          <option value="google, 'Signika', sans-serif">Signika</option>
+          <option value="google, 'Armata', sans-serif">Armata</option>
+          <option  value="google, 'Open Sans', sans-serif">Open Sans</option>
+          </optgroup>
+          <optgroup label="Serif">
+          <option value="Garamond, Baskerville, Caslon, serif">Garamond</option>
+          <option value="Georgia, Utopia, 'Times New Roman', Times, serif">Georgia</option>
+          <option value="Palatino, 'Palatino Linotype', 'Book Antiqua', serif">Palatino</option>
+          <option value="'Times New Roman', Times, serif">Times New Roman</option>
+          <option value="google, 'Bree Serif', serif">Bree Serif</option>
+          <option value="google, 'Roboto Slab', serif">Roboto Slab</option>
+          <option value="google, 'Lora', serif">Lora</option>
+          <option value="google, 'Nixie One', serif">Nixie One</option>
+          <option value="google, 'Droid Serif', serif">Droid Serif</option>
+          </optgroup>
+          <optgroup label="Monospace">
+          <option value="'Courier New', Courier, monospace">Courier New</option>
+          <option value="Monaco, 'Lucida Console', 'DejaVu Sans Mono', monospace">Monaco/Lucida Console</option>
+          </optgroup>
+        </select></td>
+    </tr>
+    <tr>
+      <td><label for="font-nav">Главное меню</label></td>
+      <td><select name="font-nav" id="font-nav">
+          <optgroup label="Sans-serif">
+          <option value="'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif">Helvetica/Arial</option>
+          <option value="Impact, Charcoal, Helvetica, Arial, sans-serif">Impact</option>
+          <option value="'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', Lucida, Helvetica, Arial, sans-serif">Lucida Grande</option>
+          <option value="Trebuchet MS, Helvetica, sans-serif">Trebuchet MS</option>
+          <option value="Verdana, Helvetica, Arial, sans-serif">Verdana</option>
+          <option selected="selected" value="google, 'Lato', sans-serif">Lato</option>
+          <option value="google, 'Roboto', sans-serif">Roboto</option>
+          <option value="google, 'Signika', sans-serif">Signika</option>
+          <option value="google, 'Armata', sans-serif">Armata</option>
+          <option value="google, 'Open Sans', sans-serif">Open Sans</option>
+          </optgroup>
+          <optgroup label="Serif">
+          <option value="Garamond, Baskerville, Caslon, serif">Garamond</option>
+          <option value="Georgia, Utopia, 'Times New Roman', Times, serif">Georgia</option>
+          <option value="Palatino, 'Palatino Linotype', 'Book Antiqua', serif">Palatino</option>
+          <option value="'Times New Roman', Times, serif">Times New Roman</option>
+          <option value="google, 'Bree Serif', serif">Bree Serif</option>
+          <option value="google, 'Roboto Slab', serif">Roboto Slab</option>
+          <option value="google, 'Lora', serif">Lora</option>
+          <option value="google, 'Nixie One', serif">Nixie One</option>
+          <option value="google, 'Droid Serif', serif">Droid Serif</option>
+          </optgroup>
+          <optgroup label="Monospace">
+          <option value="'Courier New', Courier, monospace">Courier New</option>
+          <option value="Monaco, 'Lucida Console', 'DejaVu Sans Mono', monospace">Monaco/Lucida Console</option>
+          </optgroup>
+        </select></td>
+    </tr>
+    <tr>
+      <td><label for="font-text">Текст</label></td>
+      <td><select name="font-text" id="font-text">
+          <optgroup label="Sans-serif">
+          <option selected="selected" value="'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif">Helvetica/Arial</option>
+          <option value="Impact, Charcoal, Helvetica, Arial, sans-serif">Impact</option>
+          <option value="'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', Lucida, Helvetica, Arial, sans-serif">Lucida Grande</option>
+          <option value="Trebuchet MS, Helvetica, sans-serif">Trebuchet MS</option>
+          <option value="Verdana, Helvetica, Arial, sans-serif">Verdana</option>
+          <option value="google, 'Lato', sans-serif">Lato</option>
+          <option value="google, 'Roboto', sans-serif">Roboto</option>
+          <option value="google, 'Signika', sans-serif">Signika</option>
+          <option value="google, 'Armata', sans-serif">Armata</option>
+          <option value="google, 'Open Sans', sans-serif">Open Sans</option>
+          </optgroup>
+          <optgroup label="Serif">
+          <option value="Garamond, Baskerville, Caslon, serif">Garamond</option>
+          <option value="Georgia, Utopia, 'Times New Roman', Times, serif">Georgia</option>
+          <option value="Palatino, 'Palatino Linotype', 'Book Antiqua', serif">Palatino</option>
+          <option value="'Times New Roman', Times, serif">Times New Roman</option>
+          <option value="google, 'Bree Serif', serif">Bree Serif</option>
+          <option value="google, 'Roboto Slab', serif">Roboto Slab</option>
+          <option value="google, 'Lora', serif">Lora</option>
+          <option value="google, 'Nixie One', serif">Nixie One</option>
+          <option value="google, 'Droid Serif', serif">Droid Serif</option>
+          </optgroup>
+          <optgroup label="Monospace">
+          <option value="'Courier New', Courier, monospace">Courier New</option>
+          <option value="Monaco, 'Lucida Console', 'DejaVu Sans Mono', monospace">Monaco/Lucida Console</option>
+          </optgroup>
+        </select></td>
+    </tr>
+    <tr>
+      <td><label for="font-headings">Заголовки</label></td>
+      <td><select name="font-headings" id="font-headings">
+          <optgroup label="Sans-serif">
+          <option value="'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif">Helvetica/Arial</option>
+          <option value="Impact, Charcoal, Helvetica, Arial, sans-serif">Impact</option>
+          <option value="'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', Lucida, Helvetica, Arial, sans-serif">Lucida Grande</option>
+          <option value="Trebuchet MS, Helvetica, sans-serif">Trebuchet MS</option>
+          <option value="Verdana, Helvetica, Arial, sans-serif">Verdana</option>
+          <option selected="selected" value="google, 'Lato', sans-serif">Lato</option>
+          <option value="google, 'Roboto', sans-serif">Roboto</option>
+          <option value="google, 'Signika', sans-serif">Signika</option>
+          <option value="google, 'Armata', sans-serif">Armata</option>
+          <option value="google, 'Open Sans', sans-serif">Open Sans</option>
+          </optgroup>
+          <optgroup label="Serif">
+          <option value="Garamond, Baskerville, Caslon, serif">Garamond</option>
+          <option value="Georgia, Utopia, 'Times New Roman', Times, serif">Georgia</option>
+          <option value="Palatino, 'Palatino Linotype', 'Book Antiqua', serif">Palatino</option>
+          <option value="'Times New Roman', Times, serif">Times New Roman</option>
+          <option value="google, 'Bree Serif', serif">Bree Serif</option>
+          <option value="google, 'Roboto Slab', serif">Roboto Slab</option>
+          <option value="google, 'Lora', serif">Lora</option>
+          <option value="google, 'Nixie One', serif">Nixie One</option>
+          <option value="google, 'Droid Serif', serif">Droid Serif</option>
+          </optgroup>
+          <optgroup label="Monospace">
+          <option value="'Courier New', Courier, monospace">Courier New</option>
+          <option value="Monaco, 'Lucida Console', 'DejaVu Sans Mono', monospace">Monaco/Lucida Console</option>
+          </optgroup>
+        </select></td>
+    </tr>
+    <tr>
+      <td><label for="font-accent">Второстепенный</label></td>
+      <td><select name="font-accent" id="font-accent">
+          <optgroup label="Sans-serif">
+          <option value="'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif">Helvetica/Arial</option>
+          <option value="Impact, Charcoal, Helvetica, Arial, sans-serif">Impact</option>
+          <option value="'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', Lucida, Helvetica, Arial, sans-serif">Lucida Grande</option>
+          <option value="Trebuchet MS, Helvetica, sans-serif">Trebuchet MS</option>
+          <option value="Verdana, Helvetica, Arial, sans-serif">Verdana</option>
+          <option selected="selected" value="google, 'Lato', sans-serif">Lato</option>
+          <option value="google, 'Roboto', sans-serif">Roboto</option>
+          <option value="google, 'Signika', sans-serif">Signika</option>
+          <option value="google, 'Armata', sans-serif">Armata</option>
+          <option value="google, 'Open Sans', sans-serif">Open Sans</option>
+          </optgroup>
+          <optgroup label="Serif">
+          <option value="Garamond, Baskerville, Caslon, serif">Garamond</option>
+          <option value="Georgia, Utopia, 'Times New Roman', Times, serif">Georgia</option>
+          <option value="Palatino, 'Palatino Linotype', 'Book Antiqua', serif">Palatino</option>
+          <option value="'Times New Roman', Times, serif">Times New Roman</option>
+          <option value="google, 'Bree Serif', serif">Bree Serif</option>
+          <option value="google, 'Roboto Slab', serif">Roboto Slab</option>
+          <option value="google, 'Lora', serif">Lora</option>
+          <option value="google, 'Nixie One', serif">Nixie One</option>
+          <option value="google, 'Droid Serif', serif">Droid Serif</option>
+          </optgroup>
+          <optgroup label="Monospace">
+          <option value="'Courier New', Courier, monospace">Courier New</option>
+          <option value="Monaco, 'Lucida Console', 'DejaVu Sans Mono', monospace">Monaco/Lucida Console</option>
+          </optgroup>
+        </select></td>
+    </tr>
+  </table>
+</fieldset>
+<fieldset>
+  <legend>Цвет</legend>
+  <table>
+    <tr>
+      <td><label for="color-text">Текст</label></td>
+      <td><input id="color-text" name="color-text" class="color" value="#444444" /></td>
+    </tr>
+    <tr>
+      <td><label for="color-text-alt">Альтернативный текст</label></td>
+      <td><input id="color-text-alt" name="color-text-alt" class="color" value="#999999" /></td>
+    </tr>
+    <tr>
+      <td><label for="color-link">Ссылка</label></td>
+      <td><input id="color-link" name="color-link" class="color" value="#999999" /></td>
+    </tr>
+    <tr>
+      <td><label for="color-link-hover">Ссылка наведение</label></td>
+      <td><input id="color-link-hover" name="color-link-hover" class="color" value="#444444" /></td>
+    </tr>
+    <tr>
+      <td><label for="color-page-bg">Фон страницы</label></td>
+      <td><input id="color-page-bg" name="color-page-bg" class="color" value="#ffffff" /></td>
+    </tr>
+    <tr>
+      <td><label for="color-panel-bg">Фон панелей</label>
+        <br />
+        <small>отделение контента от основных блоков</small></td>
+      <td><input id="color-panel-bg" name="color-panel-bg" class="color" value="#fafafa" /></td>
+    </tr>
+    <tr>
+      <td><label for="color-border">Границы</label></td>
+      <td><input id="color-border" name="color-border" class="color" value="#ebebeb" /></td>
+    </tr>
+    <tr>
+      <td><label for="color-error">Ошибка</label></td>
+      <td><input id="color-error" name="color-error" class="color" value="#f25a1d" /></td>
+    </tr>
+    <tr>
+      <td><label for="color-button">Кнопка: текст</label></td>
+      <td><input id="color-button" name="color-button" class="color" value="#ffffff" /></td>
+    </tr>
+    <tr>
+      <td><label for="color-button-bg">Кнопка: фон</label></td>
+      <td><input id="color-button-bg" name="color-button-bg" class="color" value="#444444" /></td>
+    </tr>
+    <tr>
+      <td><label for="color-button-bg-hover">Кнопка: фон наведение</label></td>
+      <td><input id="color-button-bg-hover" name="color-button-bg-hover" class="color" value="#777777" /></td>
+    </tr>
+    <tr>
+      <td><label for="color-twitter-tone">Twitter тема</label></td>
+      <td><select name="color-twitter-tone" id="color-twitter-tone">
+          <option value="light" selected="selected">Светлая</option>
+          <option value="dark">Темная</option>
+        </select></td>
+    </tr>
+  </table>
+</fieldset>
+<fieldset>
+  <legend>Цвет (дополнительно)</legend>
+  <table>
+    <tr>
+      <td colspan="3">указанные стили с вкладки "Цвет" перезаписываются</td>
+    </tr>
+    <tr>
+      <td colspan="3"><br></td>
+    </tr>
+    <tr>
+      <td colspan="3"><strong>Шапка</strong>
+        <hr></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td>использовать?</td>
+    </tr>
+    <tr>
+      <td><label for="color-header-bg">Фон</label></td>
+      <td><input id="color-header-bg" name="color-header-bg" class="color" value="#444444" /></td>
+      <td><input type="checkbox" id="color-header-bg-enabled" name="color-header-bg-enabled" value="" /></td>
+    </tr>
+    <tr>
+      <td><label for="color-logo">Логотип</label></td>
+      <td><input id="color-logo" name="color-logo" class="color" value="#f7f7f7" /></td>
+      <td><input type="checkbox" id="color-logo-enabled" name="color-logo-enabled" value="" /></td>
+    </tr>
+    <tr>
+      <td><label for="color-search-account">Текст "Поиск" и "Аккаунт"</label></td>
+      <td><input id="color-search-account" name="color-search-account" class="color" value="#999" /></td>
+      <td><input type="checkbox" id="color-search-account-enabled" name="color-search-account-enabled" value="" /></td>
+    </tr>
+    <tr>
+      <td><label for="color-menubar">Текст главного меню</label></td>
+      <td><input id="color-menubar" name="color-menubar" class="color" value="#f7f7f7" /></td>
+      <td><input type="checkbox" id="color-menubar-enabled" name="color-menubar-enabled" value="" /></td>
+    </tr>
+    <tr>
+      <td><label for="color-cart">Текст "Корзина"</label></td>
+      <td><input id="color-cart" name="color-cart" class="color" value="#f7f7f7" /></td>
+      <td><input type="checkbox" id="color-cart-enabled" name="color-cart-enabled" value="" /></td>
+    </tr>
+    <tr>
+      <td colspan="3"><br></td>
+    </tr>
+    <tr>
+      <td colspan="3"><strong>Полноэкранный слайдер</strong>
+        <hr></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td>использовать?</td>
+    </tr>
+    <tr>
+      <td><label for="color-slider-caption">Описание: текст</label></td>
+      <td><input id="color-slider-caption" name="color-slider-caption" class="color" value="#f7f7f7" /></td>
+      <td><input type="checkbox" id="color-slider-caption-enabled" name="color-slider-caption-enabled" value="" /></td>
+    </tr>
+    <tr>
+      <td><label for="color-slider-caption-bg">Описание: фон</label></td>
+      <td><input id="color-slider-caption-bg" name="color-slider-caption-bg" class="color" value="#444444" /></td>
+      <td><input type="checkbox" id="color-slider-caption-bg-enabled" name="color-slider-caption-bg-enabled" value="" /></td>
+    </tr>
+    <tr>
+      <td><label for="color-slider-button">Кнопка: текст</label></td>
+      <td><input id="color-slider-button" name="color-slider-button" class="color" value="#f7f7f7" /></td>
+      <td><input type="checkbox" id="color-slider-button-enabled" name="color-slider-button-enabled" value="" /></td>
+    </tr>
+    <tr>
+      <td><label for="color-slider-button-bg">Кнопка: фон</label></td>
+      <td><input id="color-slider-button-bg" name="color-slider-button-bg" class="color" value="#444444" /></td>
+      <td><input type="checkbox" id="color-slider-button-bg-enabled" name="color-slider-button-bg-enabled" value="" /></td>
+    </tr>
+    <tr>
+      <td><label for="color-slider-button-hover-bg">Кнопка: фон наведение</label></td>
+      <td><input id="color-slider-button-hover-bg" name="color-slider-button-hover-bg" class="color" value="#999" /></td>
+      <td><input type="checkbox" id="color-slider-button-hover-bg-enabled" name="color-slider-button-hover-bg-enabled" value="" /></td>
+    </tr>
+    <tr>
+      <td><label for="color-slider-nav">Кнопки навигации по слайдам</label></td>
+      <td><input id="color-slider-nav" name="color-slider-nav" class="color" value="#f7f7f7" /></td>
+      <td><input type="checkbox" id="color-slider-nav-enabled" name="color-slider-nav-enabled" value="" /></td>
+    </tr>
+    <tr>
+      <td colspan="3"><br></td>
+    </tr>
+    <tr>
+      <td colspan="3"><strong>Слайдер товаров</strong>
+        <hr></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td>использовать?</td>
+    </tr>
+    <tr>
+      <td><label for="color-product-slider-arrow">Стрелки</label></td>
+      <td><input id="color-product-slider-arrow" name="color-product-slider-arrow" class="color" value="#444444" /></td>
+      <td><input type="checkbox" id="color-product-slider-arrow-enabled" name="color-product-slider-arrow-enabled" value="" /></td>
+    </tr>
+    <tr>
+      <td><label for="color-product-slider-bg">Фон</label></td>
+      <td><input id="color-product-slider-bg" name="color-product-slider-bg" class="color" value="#f7f7f7" /></td>
+      <td><input type="checkbox" id="color-product-slider-bg-enabled" name="color-product-slider-bg-enabled" value="" /></td>
+    </tr>
+    <tr>
+      <td colspan="3"><br></td>
+    </tr>
+    <tr>
+      <td colspan="3"><strong>Виджеты на главной</strong>
+        <hr></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td>исользовать?</td>
+    </tr>
+    <tr>
+      <td><label for="color-featured-promo-bg">Промо блоки: фон</label></td>
+      <td><input id="color-featured-promo-bg" name="color-featured-promo-bg" class="color" value="#f7f7f7" /></td>
+      <td><input type="checkbox" id="color-featured-promo-bg-enabled" name="color-featured-promo-bg-enabled" value="" /></td>
+    </tr>
+    <tr>
+      <td><label for="color-social-feed-bg">Социальные сети: фон</label></td>
+      <td><input id="color-social-feed-bg" name="color-social-feed-bg" class="color" value="#ffffff" /></td>
+      <td><input type="checkbox" id="color-social-feed-bg-enabled" name="color-social-feed-bg-enabled" value="" /></td>
+    </tr>
+    <tr>
+      <td colspan="3"><br></td>
+    </tr>
+    <tr>
+      <td colspan="3"><strong>Подвал</strong>
+        <hr></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td>использовать?</td>
+    </tr>
+    <tr>
+      <td><label for="color-footer-bg">Фон</label></td>
+      <td><input id="color-footer-bg" name="color-footer-bg" class="color" value="#bbbbbb" /></td>
+      <td><input type="checkbox" id="color-footer-bg-enabled" name="color-footer-bg-enabled" value="" /></td>
+    </tr>
+    <tr>
+      <td><label for="color-footer">Текст</label></td>
+      <td><input id="color-footer" name="color-footer" class="color" value="#333333" /></td>
+      <td><input type="checkbox" id="color-footer-enabled" name="color-footer-enabled" value="" /></td>
+    </tr>
+    <tr>
+      <td colspan="3"><br></td>
+    </tr>
+    <tr>
+      <td colspan="3"><strong>Каталог товаров</strong>
+        <hr></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td>использовать?</td>
+    </tr>
+    <tr>
+      <td><label for="color-grid-name">Заголовок товара</label></td>
+      <td><input id="color-grid-name" name="color-grid-name" class="color" value="#444444" /></td>
+      <td><input type="checkbox" id="color-grid-name-enabled" name="color-grid-name-enabled" value="" /></td>
+    </tr>
+    <tr>
+      <td><label for="color-grid-vendor">Производитель</label></td>
+      <td><input id="color-grid-vendor" name="color-grid-vendor" class="color" value="#444444" /></td>
+      <td><input type="checkbox" id="color-grid-vendor-enabled" name="color-grid-vendor-enabled" value="" /></td>
+    </tr>
+    <tr>
+      <td><label for="color-grid-price">Цена</label></td>
+      <td><input id="color-grid-price" name="color-grid-price" class="color" value="#444444" /></td>
+      <td><input type="checkbox" id="color-grid-price-enabled" name="color-grid-price-enabled" value="" /></td>
+    </tr>
+    <tr>
+      <td><label for="color-grid-price-discount">Старая цена</label></td>
+      <td><input id="color-grid-price-discount" name="color-grid-price-discount" class="color" value="#ff7433" /></td>
+      <td><input type="checkbox" id="color-grid-price-discount-enabled" name="color-grid-price-discount-enabled" value="" /></td>
+    </tr>
+    <tr>
+      <td><label for="color-grid-sale">Ярлык "скидка": текст</label></td>
+      <td><input id="color-grid-sale" name="color-grid-sale" class="color" value="#f7f7f7" /></td>
+      <td><input type="checkbox" id="color-grid-sale-enabled" name="color-grid-sale-enabled" value="" /></td>
+    </tr>
+    <tr>
+      <td><label for="color-grid-sale-bg">Ярлык "скидка": фон</label></td>
+      <td><input id="color-grid-sale-bg" name="color-grid-sale-bg" class="color" value="#444444" /></td>
+      <td><input type="checkbox" id="color-grid-sale-bg-enabled" name="color-grid-sale-bg-enabled" value="" /></td>
+    </tr>
+    <tr>
+      <td><label for="color-grid-sold-out">Ярлык "продано": текст</label></td>
+      <td><input id="color-grid-sold-out" name="color-grid-sold-out" class="color" value="#ffffff" /></td>
+      <td><input type="checkbox" id="color-grid-sold-out-enabled" name="color-grid-sold-out-enabled" value="" /></td>
+    </tr>
+    <tr>
+      <td><label for="color-grid-sold-out-bg">Ярлык "продано": фон</label></td>
+      <td><input id="color-grid-sold-out-bg" name="color-grid-sold-out-bg" class="color" value="#cccccc" /></td>
+      <td><input type="checkbox" id="color-grid-sold-out-bg-enabled" name="color-grid-sold-out-bg-enabled" value="" /></td>
+    </tr>
+    <tr>
+      <td colspan="3"><br></td>
+    </tr>
+    <tr>
+      <td colspan="3"><strong>Карточка товара</strong>
+        <hr></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td>использовать?</td>
+    </tr>
+    <tr>
+      <td><label for="color-product-name">Заголовок товара</label></td>
+      <td><input id="color-product-name" name="color-product-name" class="color" value="#444444" /></td>
+      <td><input type="checkbox" id="color-product-name-enabled" name="color-product-name-enabled" value="" /></td>
+    </tr>
+    <tr>
+      <td><label for="color-product-vendor-name">Производитель</label></td>
+      <td><input id="color-product-vendor-name" name="color-product-vendor-name" class="color" value="#999999" /></td>
+      <td><input type="checkbox" id="color-product-vendor-name-enabled" name="color-product-vendor-name-enabled" value="" /></td>
+    </tr>
+    <tr>
+      <td><label for="color-product-price">Цена</label></td>
+      <td><input id="color-product-price" name="color-product-price" class="color" value="#444444" /></td>
+      <td><input type="checkbox" id="color-product-price-enabled" name="color-product-price-enabled" value="" /></td>
+    </tr>
+    <tr>
+      <td><label for="color-product-compare-price">Старая цена</label></td>
+      <td><input id="color-product-compare-price" name="color-product-compare-price" class="color" value="#f7f7f7" /></td>
+      <td><input type="checkbox" id="color-product-compare-price-enabled" name="color-product-compare-price-enabled" value="" /></td>
+    </tr>
+    <tr>
+      <td><label for="color-product-cart-button">Кнопка "купить": текст</label></td>
+      <td><input id="color-product-cart-button" name="color-product-cart-button" class="color" value="#444444" /></td>
+      <td><input type="checkbox" id="color-product-cart-button-enabled" name="color-product-cart-button-enabled" value="" /></td>
+    </tr>
+    <tr>
+      <td><label for="color-product-cart-button-bg">Кнопка "купить": фон</label></td>
+      <td><input id="color-product-cart-button-bg" name="color-product-cart-button-bg" class="color" value="#444444" /></td>
+      <td><input type="checkbox" id="color-product-cart-button-bg-enabled" name="color-product-cart-button-bg-enabled" value="" /></td>
+    </tr>
+    <tr>
+      <td><label for="color-product-cart-button-bg-hover">Кнопка "купить": фон наведение</label></td>
+      <td><input id="color-product-cart-button-bg-hover" name="color-product-cart-button-bg-hover" class="color" value="#999999" /></td>
+      <td><input type="checkbox" id="color-product-cart-button-bg-hover-enabled" name="color-product-cart-button-bg-hover-enabled" value="" /></td>
+    </tr>
+  </table>
+</fieldset>
+<fieldset>
+  <legend>Шапка</legend>
+  <table>
+    <tr>
+      <td colspan="3"><strong>Логотип</strong><small>Оба изображения обязательны.</small>
+        <hr></td>
+    </tr>
+    <tr>
+      <td><label for="header-logo-show">Использовать?</label></td>
+      <td><input type="checkbox" id="header-logo-show" name="header-logo-show" value="" /></td>
+    </tr>
+    <tr>
+      <td><label for="header-logo-image">Стандартный логотип<small>макс: 800x150px</small></label></td>
+      <td><input type="file" name="logo.png" id="header-logo-image" data-max-width="800" data-max-height="150" /></td>
+    </tr>
+    <tr>
+      <td><label for="header-retina-logo-image">Retina логотип<small>должен быть вдвое больше стандартного, макс: 1600х300px</small></label></td>
+      <td><input type="file" name="logo-retina.png" id="header-retina-logo-image" data-max-width="1600" data-max-height="300" /></td>
+    </tr>
+    <tr>
+      <td colspan="3"><br></td>
+    </tr>
+    <tr>
+      <td colspan="3"><strong>Дополнительно</strong>
+        <hr></td>
+    </tr>
+    <tr>
+      <td><label for="header-search-show">Показывать "Поиск"?</label></td>
+      <td><input type="checkbox" id="header-search-show" name="header-search-show" value="1" checked="checked" /></td>
+    </tr>
+    <tr>
+      <td><label for="header-account-show">Показывать "Аккаунт"?</label></td>
+      <td><input type="checkbox" id="header-account-show" name="header-account-show" value="1" checked="checked"/></td>
+    </tr>
+  </table>
+</fieldset>
+<fieldset>
+  <legend>Полноэкранный слайдер</legend>
+  <table>
+    <tr>
+      <td colspan="3"><strong>Основные настройки</strong>
+        <hr></td>
+    </tr>
+    <tr>
+      <td><label for="home-slider-show">Использовать?</label></td>
+      <td><input type="checkbox" id="home-slider-show" name="home-slider-show" value="1" checked="checked" /></td>
+    </tr>
+    <tr>
+      <td><label for="home-slider-auto-enabled">Автопрокрутка</label></td>
+      <td><input type="checkbox" id="home-slider-auto-enabled" name="home-slider-auto-enabled" value="1" checked="checked" /></td>
+    </tr>
+    <tr>
+      <td><label for="home-slider-rotate-frequency">Задержка (секунд)</label></td>
+      <td><select name="home-slider-rotate-frequency" id="home-slider-rotate-frequency">
+          <option value="5000">5</option>
+          <option value="7000" selected="selected">7</option>
+          <option value="10000">10</option>
+          <option value="15000">15</option>
+          <option value="15000">30</option>
+        </select></td>
+    </tr>
+    <tr>
+      <td colspan="3"><br></td>
+    </tr>
+    <tr>
+      <td colspan="3"><strong>Слайд 1</strong>
+        <hr></td>
+    </tr>
+    <tr>
+      <td><label for="home-slider-slide-1-enabled">использовать?</label></td>
+      <td><input type="checkbox" id="home-slider-slide-1-enabled" name="home-slider-slide-1-enabled" value="1" checked="checked" /></td>
+    </tr>
+    <tr>
+      <td><label for="home-slider-slide-1-image">Изображение <small>(Рекомендуется 1200px х 700px)</small></label></td>
+      <td><input type="file" name="home-slider-slide-1.jpg"  data-max-width="1200" /></td>
+    </tr>
+    <tr>
+      <td><label for="home-slider-slide-1-title">Заголовок</label></td>
+      <td><input id="home-slider-slide-1-title" name="home-slider-slide-1-title" class="text long" value="Top 10 Summer Ciders" /></td>
+    </tr>
+    <tr>
+      <td><label for="home-slider-slide-1-tagline">Текст</label></td>
+      <td><input id="home-slider-slide-1-tagline" name="home-slider-slide-1-tagline" class="text long" value="We share our cider selection, hand-picking the best from around the globe" /></td>
+    </tr>
+    <tr>
+      <td><label for="home-slider-slide-1-link-title">Кнопка: текст</label></td>
+      <td><input id="home-slider-slide-1-link-title" name="home-slider-slide-1-link-title" class="text" value="Shop now" /></td>
+    </tr>
+    <tr>
+      <td><label for="home-slider-slide-1-link-url">Кнопка: ссылка</label></td>
+      <td><input id="home-slider-slide-1-link-url" name="home-slider-slide-1-link-url" class="text long" value="collections/all" /></td>
+    </tr>
+    <tr>
+      <td><label for="home-slider-slide-1-x-pos">Позиция по горизонтали</label></td>
+      <td><select name="home-slider-slide-1-x-pos" id="home-slider-slide-1-x-pos">
+          <option value="left" selected="selected">слева</option>
+          <option value="center">по центру</option>
+          <option value="right">справа</option>
+        </select></td>
+    </tr>
+    <tr>
+      <td><label for="home-slider-slide-1-y-pos">Позиция по вертикали</label></td>
+      <td><select name="home-slider-slide-1-y-pos" id="home-slider-slide-1-y-pos">
+          <option value="top">сверху</option>
+          <option value="middle" selected="selected">по центру</option>
+          <option value="bottom">снизу</option>
+        </select></td>
+    </tr>
+    <tr>
+      <td colspan="3"><br></td>
+    </tr>
+    <tr>
+      <td colspan="3"><strong>Слайд 2</strong>
+        <hr></td>
+    </tr>
+    <tr>
+      <td><label for="home-slider-slide-2-enabled">использовать?</label></td>
+      <td><input type="checkbox" id="home-slider-slide-2-enabled" name="home-slider-slide-2-enabled" value="1" checked="checked"/></td>
+    </tr>
+    <tr>
+      <td><label for="home-slider-slide-2-image">Изображение <small>(Рекомендуется 1200px х 700px)</small></label></td>
+      <td><input type="file" name="home-slider-slide-2.jpg"  data-max-width="1200" /></td>
+    </tr>
+    <tr>
+      <td><label for="home-slider-slide-2-title">Заголовок</label></td>
+      <td><input id="home-slider-slide-2-title" name="home-slider-slide-2-title" class="text long" /></td>
+    </tr>
+    <tr>
+      <td><label for="home-slider-slide-2-tagline">Текст</label></td>
+      <td><input id="home-slider-slide-2-tagline" name="home-slider-slide-2-tagline" class="text long" value="Proudly certified organic biodynamic hand made cheese, now in-store!" /></td>
+    </tr>
+    <tr>
+      <td><label for="home-slider-slide-2-link-title">Кнопка: текст</label></td>
+      <td><input id="home-slider-slide-2-link-title" name="home-slider-slide-2-link-title" class="text" value="More Info" /></td>
+    </tr>
+    <tr>
+      <td><label for="home-slider-slide-2-link-url">Кнопка: ссылка</label></td>
+      <td><input id="home-slider-slide-2-link-url" name="home-slider-slide-2-link-url" class="text long" value="collections/all" /></td>
+    </tr>
+    <tr>
+      <td><label for="home-slider-slide-2-x-pos">Позиция по горизонтали</label></td>
+      <td><select name="home-slider-slide-2-x-pos" id="home-slider-slide-2-x-pos">
+          <option value="left" selected="selected">слева</option>
+          <option value="center">по центру</option>
+          <option value="right">справа</option>
+        </select></td>
+    </tr>
+    <tr>
+      <td><label for="home-slider-slide-2-y-pos">Позиция по вертикали</label></td>
+      <td><select name="home-slider-slide-2-y-pos" id="home-slider-slide-2-y-pos">
+          <option value="top" >сверху</option>
+          <option value="middle">по центру</option>
+          <option value="bottom" selected="selected">снизу</option>
+        </select></td>
+    </tr>
+    <tr>
+      <td colspan="3"><br></td>
+    </tr>
+    <tr>
+      <td colspan="3"><strong>Слайд 3</strong>
+        <hr></td>
+    </tr>
+    <tr>
+      <td><label for="home-slider-slide-3-enabled">использовать?</label></td>
+      <td><input type="checkbox" id="home-slider-slide-3-enabled" name="home-slider-slide-3-enabled" value="1" checked="checked" /></td>
+    </tr>
+    <tr>
+      <td><label for="home-slider-slide-3-image">Изображение <small>(Рекомендуется 1200px х 700px)</small></label></td>
+      <td><input type="file" name="home-slider-slide-3.jpg"  data-max-width="1200" /></td>
+    </tr>
+    <tr>
+      <td><label for="home-slider-slide-3-title">Заголовок</label></td>
+      <td><input id="home-slider-slide-3-title" name="home-slider-slide-3-title" class="text long" value="The Hottest Hotdog in NYC" /></td>
+    </tr>
+    <tr>
+      <td><label for="home-slider-slide-3-tagline">Текст</label></td>
+      <td><input id="home-slider-slide-3-tagline" name="home-slider-slide-3-tagline" class="text" value="Keep things firey this winter with our latest chilli range" /></td>
+    </tr>
+    <tr>
+      <td><label for="home-slider-slide-3-link-title">Кнопка: текст</label></td>
+      <td><input id="home-slider-slide-3-link-title" name="home-slider-slide-3-link-title" class="text long" value="Shop Collection" /></td>
+    </tr>
+    <tr>
+      <td><label for="home-slider-slide-3-link-url">Кнопка: ссылка</label></td>
+      <td><input id="home-slider-slide-3-link-url" name="home-slider-slide-3-link-url" class="text long" value="collections/all" /></td>
+    </tr>
+    <tr>
+      <td><label for="home-slider-slide-3-x-pos">Позиция по горизонтали</label></td>
+      <td><select name="home-slider-slide-3-x-pos" id="home-slider-slide-3-x-pos">
+          <option value="left">слева</option>
+          <option value="center" selected="selected">по центру</option>
+          <option value="right">справа</option>
+        </select></td>
+    </tr>
+    <tr>
+      <td><label for="home-slider-slide-3-y-pos">Позиция по вертикали</label></td>
+      <td><select name="home-slider-slide-3-y-pos" id="home-slider-slide-3-y-pos">
+          <option value="top" selected="selected">сверху</option>
+          <option value="middle">по центру</option>
+          <option value="bottom">снизу</option>
+        </select></td>
+    </tr>
+    <tr>
+      <td colspan="3"><br></td>
+    </tr>
+    <tr>
+      <td colspan="3"><strong>Слайд 4</strong>
+        <hr></td>
+    </tr>
+    <tr>
+      <td><label for="home-slider-slide-4-enabled">использовать?</label></td>
+      <td><input type="checkbox" id="home-slider-slide-4-enabled" name="home-slider-slide-4-enabled" value="" /></td>
+    </tr>
+    <tr>
+      <td><label for="home-slider-slide-4-image">Изображение <small>(Рекомендуется 1200px х 700px)</small></label></td>
+      <td><input type="file" name="home-slider-slide-4.jpg"  data-max-width="1200" /></td>
+    </tr>
+    <tr>
+      <td><label for="home-slider-slide-4-title">Заголовок</label></td>
+      <td><input id="home-slider-slide-4-title" name="home-slider-slide-4-title" class="text long" /></td>
+    </tr>
+    <tr>
+      <td><label for="home-slider-slide-4-tagline">Текст</label></td>
+      <td><input id="home-slider-slide-4-tagline" name="home-slider-slide-4-tagline" class="text" /></td>
+    </tr>
+    <tr>
+      <td><label for="home-slider-slide-4-link-title">Кнопка: текст</label></td>
+      <td><input id="home-slider-slide-4-link-title" name="home-slider-slide-4-link-title" class="text long" /></td>
+    </tr>
+    <tr>
+      <td><label for="home-slider-slide-4-link-url">Кнопка: ссылка</label></td>
+      <td><input id="home-slider-slide-4-link-url" name="home-slider-slide-4-link-url" class="text long" value="collections/all" /></td>
+    </tr>
+    <tr>
+      <td><label for="home-slider-slide-4-x-pos">Позиция по горизонтали</label></td>
+      <td><select name="home-slider-slide-4-x-pos" id="home-slider-slide-4-x-pos">
+          <option value="left" selected="selected">слева</option>
+          <option value="center">по центру</option>
+          <option value="right">справа</option>
+        </select></td>
+    </tr>
+    <tr>
+      <td><label for="home-slider-slide-4-y-pos">Позиция по вертикали</label></td>
+      <td><select name="home-slider-slide-4-y-pos" id="home-slider-slide-4-y-pos">
+          <option value="top" selected="selected">сверху</option>
+          <option value="middle">по центру</option>
+          <option value="bottom">снизу</option>
+        </select></td>
+    </tr>
+    <tr>
+      <td colspan="3"><br></td>
+    </tr>
+    <tr>
+      <td colspan="3"><strong>Слайд 5</strong>
+        <hr></td>
+    </tr>
+    <tr>
+      <td><label for="home-slider-slide-5-enabled">использовать?</label></td>
+      <td><input type="checkbox" id="home-slider-slide-5-enabled" name="home-slider-slide-5-enabled" value="" /></td>
+    </tr>
+    <tr>
+      <td><label for="home-slider-slide-5-image">Изображение <small>(Рекомендуется 1200px х 700px)</small></label></td>
+      <td><input type="file" name="home-slider-slide-5.jpg"  data-max-width="1200" /></td>
+    </tr>
+    <tr>
+      <td><label for="home-slider-slide-5-title">Заголовок</label></td>
+      <td><input id="home-slider-slide-5-title" name="home-slider-slide-5-title" class="text long" /></td>
+    </tr>
+    <tr>
+      <td><label for="home-slider-slide-5-tagline">Текст</label></td>
+      <td><input id="home-slider-slide-5-tagline" name="home-slider-slide-5-tagline" class="text long" /></td>
+    </tr>
+    <tr>
+      <td><label for="home-slider-slide-5-link-title">Кнопка: текст</label></td>
+      <td><input id="home-slider-slide-5-link-title" name="home-slider-slide-5-link-title" class="text" /></td>
+    </tr>
+    <tr>
+      <td><label for="home-slider-slide-5-link-url">Кнопка: ссылка</label></td>
+      <td><input id="home-slider-slide-5-link-url" name="home-slider-slide-5-link-url" class="text long" value="collections/all" /></td>
+    </tr>
+    <tr>
+      <td><label for="home-slider-slide-5-x-pos">Позиция по горизонтали</label></td>
+      <td><select name="home-slider-slide-5-x-pos" id="home-slider-slide-5-x-pos">
+          <option value="left" selected="selected">слева</option>
+          <option value="center">по центру</option>
+          <option value="right">справа</option>
+        </select></td>
+    </tr>
+    <tr>
+      <td><label for="home-slider-slide-5-y-pos">Позиция по вертикали</label></td>
+      <td><select name="home-slider-slide-5-y-pos" id="home-slider-slide-5-y-pos">
+          <option value="top" selected="selected">сверху</option>
+          <option value="middle">по центру</option>
+          <option value="bottom">снизу</option>
+        </select></td>
+    </tr>
+    <tr>
+      <td colspan="3"><br></td>
+    </tr>
+    <tr>
+      <td colspan="3"><strong>Слайд 6</strong>
+        <hr></td>
+    </tr>
+    <tr>
+      <td><label for="home-slider-slide-6-enabled">использовать?</label></td>
+      <td><input type="checkbox" id="home-slider-slide-6-enabled" name="home-slider-slide-6-enabled" value="" /></td>
+    </tr>
+    <tr>
+      <td><label for="home-slider-slide-6-image">Изображение <small>(Рекомендуется 1200px х 700px)</small></label></td>
+      <td><input type="file" name="home-slider-slide-6.jpg"  data-max-width="1200" /></td>
+    </tr>
+    <tr>
+      <td><label for="home-slider-slide-6-title">Заголовок</label></td>
+      <td><input id="home-slider-slide-6-title" name="home-slider-slide-6-title" class="text long" /></td>
+    </tr>
+    <tr>
+      <td><label for="home-slider-slide-6-tagline">Текст</label></td>
+      <td><input id="home-slider-slide-6-tagline" name="home-slider-slide-6-tagline" class="text long" /></td>
+    </tr>
+    <tr>
+      <td><label for="home-slider-slide-6-link-title">Кнопка: текст</label></td>
+      <td><input id="home-slider-slide-6-link-title" name="home-slider-slide-6-link-title" class="text" /></td>
+    </tr>
+    <tr>
+      <td><label for="home-slider-slide-6-link-url">Кнопка: ссылка</label></td>
+      <td><input id="home-slider-slide-6-link-url" name="home-slider-slide-6-link-url" class="text long" value="collections/all" /></td>
+    </tr>
+    <tr>
+      <td><label for="home-slider-slide-6-x-pos">Позиция по горизонтали</label></td>
+      <td><select name="home-slider-slide-6-x-pos" id="home-slider-slide-6-x-pos">
+          <option value="left" selected="selected">слева</option>
+          <option value="center">по центру</option>
+          <option value="right">справа</option>
+        </select></td>
+    </tr>
+    <tr>
+      <td><label for="home-slider-slide-6-y-pos">Позиция по вертикали</label></td>
+      <td><select name="home-slider-slide-6-y-pos" id="home-slider-slide-6-y-pos">
+          <option value="top" selected="selected">сверху</option>
+          <option value="middle">по центру</option>
+          <option value="bottom">снизу</option>
+        </select></td>
+    </tr>
+  </table>
+</fieldset>
+<fieldset>
+  <legend>Слайдер товаров</legend>
+  <table>
+    <tr>
+      <td><label for="home-product-slider-show">использовать?</label></td>
+      <td><input type="checkbox" id="home-product-slider-show" name="home-product-slider-show" value="1" checked="checked" /></td>
+    </tr>
+    <tr>
+      <td><label for="home-product-slider-limit">количество</label></td>
+      <td><select name="home-product-slider-limit" id="home-product-slider-limit">
+          <option value="4">4</option>
+          <option value="8">8</option>
+          <option value="12" selected="selected">12</option>
+          <option value="16">16</option>
+          <option value="20">20</option>
+        </select></td>
+    </tr>
+  </table>
+</fieldset>
+<fieldset>
+  <legend>Карточка товара</legend>
+  <table>
+    <tr>
+      <td><label for="product-brand-show">Показывать параметр "Бренд"?</label></td>
+      <td><input type="checkbox" id="product-brand-show" name="product-brand-show" value="1"  checked="checked"/></td>
+    </tr>
+    <tr>
+      <td><label for="product-similar-products-show">Показывать похожие товары?</label></td>
+      <td><input type="checkbox" id="product-similar-products-show" name="product-similar-products-show" value="1" checked="checked" /></td>
+    </tr>
+    <tr>
+      <td colspan="2"><br></td>
+    </tr>
+    <tr>
+      <td colspan="2"><strong>Блок "Поделиться"</strong>
+        <hr></td>
+    </tr>
+    <tr>
+      <td><label for="product-share-this-show">использовать?</label></td>
+      <td><input type="checkbox" id="product-share-this-show" name="product-share-this-show" value="1" checked="checked"/></td>
+    </tr>
+    <tr>
+      <td><label for="product-share-google">Google Plus?</label></td>
+      <td><input type="checkbox" id="product-share-google" name="product-share-google" value="1" checked="checked" /></td>
+    </tr>
+    <tr>
+      <td><label for="product-share-twitter">Twitter?</label></td>
+      <td><input type="checkbox" id="product-share-twitter" name="product-share-twitter" value="1" checked="checked"/></td>
+    </tr>
+    <tr>
+      <td><label for="product-share-pinterest">Pinterest?</label></td>
+      <td><input type="checkbox" id="product-share-pinterest" name="product-share-pinterest" value="1" checked="checked"/></td>
+    </tr>
+    <tr>
+      <td><label for="product-share-facebook">Facebook?</label></td>
+      <td><input type="checkbox" id="product-share-facebook" name="product-share-facebook" value="1" checked="checked"/></td>
+    </tr>
+  </table>
+</fieldset>
+<fieldset>
+  <legend>Информационные виджеты на главной</legend>
+  <table>
+    <tr>
+      <td colspan="3"><h2>Строка 1 - "Текст/Видео/Изображение" блоки</h2>
+        <hr></td>
+    </tr>
+    <tr>
+      <td>использовать?</td>
+      <td colspan="3"><input type="checkbox" id="home-featured-promo" name="home-featured-promo" value="1" checked="checked"/></td>
+    </tr>
+    <tr>
+      <td>Левая колонка</td>
+      <td><select name="home-featured-promo-left-type" id="home-featured-promo-left-type">
+          <option value="text">текст</option>
+          <option value="image" selected="selected">изображение</option>
+          <option value="video">видео</option>
+        </select></td>
+    </tr>
+    <tr>
+      <td>Правая колонка</td>
+      <td><select name="home-featured-promo-right-type" id="home-featured-promo-right-type">
+          <option value="text" selected="selected">текст</option>
+          <option value="image">изображение</option>
+          <option value="video">видео</option>
+        </select></td>
+    </tr>
+    <tr>
+      <td colspan="4"><br></td>
+    </tr>
+    <tr>
+      <td colspan="4"><strong>Блок "Текст"</strong>
+        <hr></td>
+    </tr>
+    <tr>
+      <td colspan="3"><input type="hidden" id="home-featured-promo-type" name="home-featured-promo-type" value="" /></td>
+    </tr>
+    <tr>
+      <td><label for="home-featured-promo-title">Заголовок</label></td>
+      <td colspan="3"><input type="text" id="home-featured-promo-title" name="home-featured-promo-title" value="One Stop Shop."/></td>
+    </tr>
+    <tr>
+      <td><label for="home-featured-promo-description">Описание</label></td>
+      <td colspan="3"><textarea id="home-featured-promo-description" name="home-featured-promo-description" class="text" >Block Shop theme boasts spacious layouts, block colours, bold typography with a minimal user interface that endures trends with simplicity and style. Content is divided in large customisable blocks giving you freedom to adjust layout, colour, typography and UI elements to represent your brand with boldness and clarity. Retina-ready, full responsive for widescreen and mobile devices, the Block Shop is your one stop shop.</textarea></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>текст</td>
+      <td>ссылка</td>
+    </tr>
+    <tr>
+      <td><label>Кнопка</label></td>
+      <td><input type="text" id="home-featured-promo-link-text" name="home-featured-promo-link-text" value="View Theme Features" /></td>
+      <td colspan="2"><input type="text" id="home-featured-promo-link-url" name="home-featured-promo-link-url" value="collections/all" /></td>
+    </tr>
+    <tr>
+      <td colspan="4"><br></td>
+    </tr>
+    <tr>
+      <td colspan="4"><strong>Блок "Изображение"</strong>
+        <hr></td>
+    </tr>
+    <tr>
+      <td><label for="home-featured-promo-image">Изображение</label></td>
+      <td colspan="3"><input type="file" data-max-width="800" id="home-featured-promo-image" name="home-featured-promo.png" /></td>
+    </tr>
+    <tr>
+      <td><label for="home-featured-promo-alt">Изображение: альт. текст</label></td>
+      <td colspan="3"><input type="text" id="home-featured-promo-alt" name="home-featured-promo-alt" value="Theme Features" /></td>
+    </tr>
+    <tr>
+      <td><label for="home-featured-promo-image-link">Ссылка</label></td>
+      <td colspan="3"><input type="text" id="home-featured-promo-image-link" name="home-featured-promo-image-link" value="collections/all" /></td>
+    </tr>
+    <tr>
+      <td colspan="4"><br></td>
+    </tr>
+    <tr>
+      <td colspan="4"><strong>Блок "Видео"</strong>
+        <hr></td>
+    </tr>
+    <tr>
+      <td><label for="home-featured-promo-video">Встраиваемый код видео</label></td>
+      <td colspan="3"><textarea id="home-featured-promo-video" name="home-featured-promo-video" class="text"></textarea></td>
+    </tr>
+  </table>
+  <table>
+    <tr>
+      <td colspan="3"><h2>Строка 2 - Промоблоки</h2>
+        <hr></td>
+    </tr>
+    <tr>
+      <td>Промо 1: использовать?</td>
+      <td><input type="hidden" id="home-widget-image-text-1-type" name="home-widget-image-text-1-type" value="image-text" />
+        <input type="checkbox" id="home-widget-image-text-1" name="home-widget-image-text-1" value="1" checked="checked" /></td>
+    </tr>
+    <tr>
+      <td><label for="home-widget-image-text-1-image">изображение</label></td>
+      <td><input data-max-width="450" type="file" id="home-widget-image-text-1-image" name="home-widget-image-text-1.png" /></td>
+    </tr>
+    <tr>
+      <td><label for="home-widget-image-text-1-alt">изображение: альт. текст</label></td>
+      <td><input type="text" class="text long" id="home-widget-image-text-1-alt" name="home-widget-image-text-1-alt" value="Daily Deli" /></td>
+    </tr>
+    <tr>
+      <td><label for="home-widget-image-text-1-link">ссылка</label></td>
+      <td><input type="text" class="text long" id="home-widget-image-text-1-link" name="home-widget-image-text-1-link" value="/collections/new" /></td>
+    </tr>
+    <tr>
+      <td><label for="home-widget-image-text-1-title">заголовок</label></td>
+      <td><input type="text" class="text long" id="home-widget-image-text-1-title" name="home-widget-image-text-1-title" value="Daily Deli Goods" /></td>
+    </tr>
+    <tr>
+      <td><label for="home-widget-image-text-1-sub-title">подзаголовок</label></td>
+      <td><input type="text" class="text long" id="home-widget-image-text-1-sub-title" name="home-widget-image-text-1-sub-title" value="Shop New" /></td>
+    </tr>
+    <tr>
+      <td colspan="2"><hr /></td>
+    </tr>
+    <tr>
+      <td>Промо 2: использовать?</td>
+      <td><input type="hidden" id="home-widget-image-text-2-type" name="home-widget-image-text-2-type" value="image-text" />
+        <input type="checkbox" id="home-widget-image-text-2" name="home-widget-image-text-2" value="1" checked="checked" /></td>
+    </tr>
+    <tr>
+      <td><label for="home-widget-image-text-2-image">изображение</label></td>
+      <td><input data-max-width="450" type="file" id="home-widget-image-text-2-image" name="home-widget-image-text-2.png" /></td>
+    </tr>
+    <tr>
+      <td><label for="home-widget-image-text-2-alt">изображение: альт. текст</label></td>
+      <td><input type="text" class="text long" id="home-widget-image-text-2-alt" name="home-widget-image-text-2-alt" value="From the Bar" /></td>
+    </tr>
+    <tr>
+      <td><label for="home-widget-image-text-2-link">ссылка</label></td>
+      <td><input type="text" class="text long" id="home-widget-image-text-2-link" name="home-widget-image-text-2-link" value="/collections/drinks" /></td>
+    </tr>
+    <tr>
+      <td><label for="home-widget-image-text-2-title">заголовок</label></td>
+      <td><input type="text" class="text long" id="home-widget-image-text-2-title" name="home-widget-image-text-2-title" value="From the Bar" /></td>
+    </tr>
+    <tr>
+      <td><label for="home-widget-image-text-2-sub-title">подзаголовок</label></td>
+      <td><input type="text" class="text long" id="home-widget-image-text-2-sub-title" name="home-widget-image-text-2-sub-title" value="Shop Specialty" /></td>
+    </tr>
+    <tr>
+      <td colspan="2"><hr /></td>
+    </tr>
+    <tr>
+      <td>Промо 3: использовать?</td>
+      <td><input type="hidden" id="home-widget-image-text-3-type" name="home-widget-image-text-3-type" value="image-text" />
+        <input type="checkbox" id="home-widget-image-text-3" name="home-widget-image-text-3" value="1" checked="checked" /></td>
+    </tr>
+    <tr>
+      <td><label for="home-widget-image-text-3-image">изображение</label></td>
+      <td><input data-max-width="450" type="file" id="home-widget-image-text-3-image" name="home-widget-image-text-3.png" /></td>
+    </tr>
+    <tr>
+      <td><label for="home-widget-image-text-3-alt">изображение: альт. текст</label></td>
+      <td><input type="text" class="text long" id="home-widget-image-text-3-alt" name="home-widget-image-text-3-alt" value="Deconstructing the Perfect Burger" /></td>
+    </tr>
+    <tr>
+      <td><label for="home-widget-image-text-3-link">ссылка</label></td>
+      <td><input type="text" class="text long" id="home-widget-image-text-3-link" name="home-widget-image-text-3-link" value="/blog" /></td>
+    </tr>
+    <tr>
+      <td><label for="home-widget-image-text-3-title">заголовок</label></td>
+      <td><input type="text" class="text long" id="home-widget-image-text-3-title" name="home-widget-image-text-3-title" value="The Perfect Burger" /></td>
+    </tr>
+    <tr>
+      <td><label for="home-widget-image-text-3-sub-title">подзаголовок</label></td>
+      <td><input type="text" class="text long" id="home-widget-image-text-3-sub-title" name="home-widget-image-text-3-sub-title" value="Read the blog" /></td>
+    </tr>
+    <tr>
+      <td colspan="2"><hr /></td>
+    </tr>
+    <tr>
+      <td>Промо 4: использовать?</td>
+      <td><input type="hidden" id="home-widget-image-text-4-type" name="home-widget-image-text-4-type" value="image-text" />
+        <input type="checkbox" id="home-widget-image-text-4" name="home-widget-image-text-4" /></td>
+    </tr>
+    <tr>
+      <td><label for="home-widget-image-text-4-image">изображение</label></td>
+      <td><input data-max-width="450" type="file" id="home-widget-image-text-4-image" name="home-widget-image-text-4.png" /></td>
+    </tr>
+    <tr>
+      <td><label for="home-widget-image-text-4-alt">избражение: альт. текст</label></td>
+      <td><input type="text" class="text long" id="home-widget-image-text-4-alt" name="home-widget-image-text-4-alt" /></td>
+    </tr>
+    <tr>
+      <td><label for="home-widget-image-text-4-link">ссылка</label></td>
+      <td><input type="text" class="text long" id="home-widget-image-text-4-link" name="home-widget-image-text-4-link" /></td>
+    </tr>
+    <tr>
+      <td><label for="home-widget-image-text-4-title">заголовок</label></td>
+      <td><input type="text" class="text long" id="home-widget-image-text-4-title" name="home-widget-image-text-4-title" /></td>
+    </tr>
+    <tr>
+      <td><label for="home-widget-image-text-4-sub-title">подзаголовок</label></td>
+      <td><input type="text" class="text long" id="home-widget-image-text-4-sub-title" name="home-widget-image-text-4-sub-title" /></td>
+    </tr>
+  </table>
+  <table>
+    <tr>
+      <td colspan="3"><h2>Строка 3 - Социалка</h2>
+        <hr></td>
+    </tr>
+    <tr>
+      <td><label for="home-widget-twitter">Twitter: использовать?</label></td>
+      <td><input type="checkbox" id="home-widget-twitter" name="home-widget-twitter" value="1" checked="checked" /></td>
+    </tr>
+    <tr>
+      <td><label for="home-widget-twitter-username">аккаунт</label></td>
+      <td><input type="text" class="text long" id="home-widget-twitter-username" name="home-widget-twitter-username" value="bonappetit" />
+        <input type="hidden" id="home-widget-twitter-type" name="home-widget-twitter-type" value="twitter" /></td>
+    </tr>
+    <tr>
+      <td colspan="2"><hr /></td>
+    </tr>
+    <tr>
+      <td><label for="home-widget-instagram">Instagram: использовать?</label></td>
+      <td><input type="checkbox" id="home-widget-instagram" name="home-widget-instagram" value="1" checked="checked" /></td>
+    </tr>
+<tr>
+<th>
+<label for="instagram_bg_color">Фон</th>
+<td>
+<input id="instagram_bg_color"  name="instagram_bg_color" type="color"   value="#fff8ee"  /></td>
+</tr>
+<tr>
+<th>
+<label for="instagram_title">Заголовок</th>
+<td>
+<input id="instagram_title"  name="instagram_title" type="text"   value="#Ella On Instagram | #Ella Auf Instagram"  /></td>
+</tr>
+<tr>
+<th>
+<label for="instagram_des">Текст</th>
+<td>
+<input id="instagram_des"  name="instagram_des" type="text"   value="Phasellus lorem malesuada ligula pulvinar commodo maecenas suscipit auctom."  /></td>
+</tr>
+<tr>
+<th>
+<label for="display_instagram_button">Показывать кнопку?</th>
+<td>
+<input id="display_instagram_button"  name="display_instagram_button" type="checkbox"  checked /></td>
+</tr>
+<tr>
+<th>
+<label for="instagram_button_text">Текст кнопки</th>
+<td>
+<input id="instagram_button_text"  name="instagram_button_text" type="text"   value="View Gallery | Ansicht-Galerie"  /></td>
+</tr>
+<tr>
+<th>
+<label for="instagram_button_link">Ссылка</th>
+<td>
+<input id="instagram_button_link"  name="instagram_button_link" type="text"   value="http://instagram.com/shopify"  /></td>
+</tr>
+<tr>
+<th>
+<label for="instagram_get">Получить изображения из</th>
+<td>
+<input id="instagram_get"  name="instagram_get" type="select"   value="user"  /></td>
+</tr>
+<tr>
+<th>
+<label for="client-id">Id аккаунта</th>
+<td>
+<input id="client-id"  name="client-id" type="text"   value="c6e4c736e82345a3898a0e299daa00fb"  /></td>
+</tr>
+<tr>
+<th>
+<label for="instagram_tag">Имя тега</th>
+<td>
+<input id="instagram_tag"  name="instagram_tag" type="text"   value=""  /></td>
+</tr>
+<tr>
+<th>
+<label for="instagram_locationId">ID локации</th>
+<td>
+<input id="instagram_locationId"  name="instagram_locationId" type="text"   value=""  /></td>
+</tr>
+<tr>
+<th>
+<label for="user-id">Id пользователя</th>
+<td>
+<input id="user-id"  name="user-id" type="text"   value="1599696966"  /></td>
+</tr>
+<tr>
+<th>
+<label for="accessToken">Токен доступа</th>
+<td>
+<input id="accessToken"  name="accessToken" type="text"   value="1599696966.1677ed0.d8e0b901804b4f14ac17fd985681098e"  /></td>
+</tr>
+<tr>
+<th>
+<label for="limit">Лимит изображений</th>
+<td>
+<input id="limit"  name="limit" type="text"   value="10"  /></td>
+</tr>
+<tr>
+<th>
+<label for="images_per_row">Изображений в строке</th>
+<td>
+<input id="images_per_row"  name="images_per_row" type="select"   value="5"  /></td>
+</tr>
+<tr>
+<th>
+<label for="resolution_images">Разррешение изображений</th>
+<td>
+<input id="resolution_images"  name="resolution_images" type="select"   value="low_resolution"  /></td>
+</tr>
+    <tr>
+      <td colspan="2"><hr /></td>
+    </tr>
+    <tr>
+      <td><label for="home-widget-blog">Блог: использовать?</label></td>
+      <td><input type="checkbox" id="home-widget-blog" name="home-widget-blog" value="1" checked="checked" /></td>
+    </tr>
+    <tr>
+      <td colspan="2"> <input type="hidden" id="home-widget-blog-type" name="home-widget-blog-type" value="blog" /> </td>
+    </tr>
+  </table>
+</fieldset>

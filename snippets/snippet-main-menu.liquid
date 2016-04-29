@@ -1,0 +1,43 @@
+<div class="main-menu">
+  <nav role="navigation" class="widescreen clearfix">
+    <ul id="nav" class="inline-list font-nav">
+      {% for link in linklists.main-menu.links %}
+          {% if link.url == '/collection/all' %}
+            <li class="nav-item dropdown">
+              <a class="nav-item-link" href="{{ link.url }}">{{ link.title }} <span aria-hidden="true" class="glyph arrow-down"></span></a>
+              <ul class="sub-nav catalog">              
+                <li class="sub-nav-item row">
+						<div class="columns large-3">
+							<h3 class="title">Каталог товаров</h3>
+							<ul> 
+                              {% for collection in collections %}<li><a href="{{collection.url}}"{% if collection.current? %} class="active"{% endif %}>{{collection.title}}</a></li>{% endfor %}</ul>
+						</div>
+					{% if linklists.sub-menu-b.links.size > 0 %}
+						<div class="columns large-3">
+							<h3 class="title">{{ linklists.sub-menu-b.title }}</h3>
+							<ul>{% for link in linklists.sub-menu-b.links %}<li><a href="{{link.url}}"{% if link.current? %} class="active"{% endif %}>{{ link.title }}</a></li>{% endfor %}</ul>
+						</div>
+					{% endif %}
+					{% if linklists.sub-menu-c.links.size > 0 %}
+						<div class="columns large-3">
+							<h3 class="title">{{ linklists.sub-menu-c.title }}</h3>
+							<ul>{% for link in linklists.sub-menu-c.links %}<li><a href="{{link.url}}"{% if link.current? %} class="active"{% endif %}>{{ link.title }}</a></li>{% endfor %}</ul>
+						</div>
+					{% endif %}
+					{% if linklists.sub-menu-d.links.size > 0 %}
+						<div class="columns large-3">
+							<h3 class="title">{{ linklists.sub-menu-d.title }}</h3>
+							<ul>{% for link in linklists.sub-menu-d.links %}<li><a href="{{link.url}}"{% if link.current? %} class="active"{% endif %}>{{ link.title }}</a></li>{% endfor %}</ul>
+						</div>
+					{% endif %}
+                </li>
+              </ul>
+            </li>
+          {% else %}
+            <li class="nav-item"><a class="nav-item-link" href="{{ link.url }}">{{ link.title }}</a></li>
+          {% endif %}
+        </li>
+      {% endfor %}
+    </ul>
+  </nav>
+</div>

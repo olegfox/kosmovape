@@ -1,0 +1,311 @@
+{% if settings.home-slider-show %}
+  <section class="slider {{ settings.color-icons-theme }}">
+    <div class="row">
+      <div class="slides">
+          
+        {% for i in (1..7) %}
+
+          {% capture slide_enabled %}home-slider-slide-{{ i }}-enabled{% endcapture %}
+          {% capture slide_img %}home-slider-slide-{{ i }}.jpg{% endcapture %}
+          {% capture slide_media_type %}home-slider-slide-{{ i }}-type{% endcapture %}
+          {% capture slide_bg_color %}home-slider-slide-{{ i }}-bg-color{% endcapture %}
+          {% capture slide_link_type %}home-slider-slide-{{ i }}-link-type{% endcapture %}
+          {% capture slide_title %}home-slider-slide-{{ i }}-title{% endcapture %}
+          {% capture slide_tagline %}home-slider-slide-{{ i }}-tagline{% endcapture %}
+          {% capture slide_link_url %}home-slider-slide-{{ i }}-link-url{% endcapture %}
+          {% capture slide_link_title %}home-slider-slide-{{ i }}-link-title{% endcapture %}
+          {% capture slide_video %}home-slider-slide-{{ i }}-video{% endcapture %}
+          {% capture slide_x_pos %}home-slider-slide-{{ i }}-x-pos{% endcapture %}
+          {% capture slide_y_pos %}home-slider-slide-{{ i }}-y-pos{% endcapture %}
+
+          {% if settings[slide_enabled] %}
+
+              <div class="slide">
+                <img src="{{ slide_img | asset_url }}">
+                {% if settings[slide_link_type] == 'slide_link' and settings[slide_link_url].size > 0 %}
+                  <a class="slide_link_through" href="{{ settings[slide_link_url] }}"></a>
+                {% endif %}
+
+                {% if settings[slide_title].size > 0 or settings[slide_tagline].size > 0 or settings[slide_link_title].size > 0 %}
+                    <div class="caption {{ settings[slide_x_pos] }} {{ settings[slide_y_pos] }}">
+                      <div class="bg"></div>
+                    {% if settings[slide_title].size > 0 %}
+                      <h2 class="title">{{ settings[slide_title] }}</h2>
+                    {% endif %}
+
+                    {% if settings[slide_tagline].size > 0 %}
+                      <h3 class="sub-title">{{ settings[slide_tagline] }}</h3>
+                    {% endif %}
+
+                    {% if settings[slide_link_title].size > 0 %}
+                      <a class="button" href="{{ settings[slide_link_url] }}">{{ settings[slide_link_title] }}</a>
+                    {% endif %}
+                  </div><!--.slide_caption -->
+                {% endif %}
+              </div>
+
+          {% endif %}
+          
+        {% endfor %}
+
+      </div>
+    </div>
+  </section>
+
+{% endif %}
+
+ 
+<div class="row tabheader">
+  {% if collections.rekomenduem.products.size > 0 %}
+      <div class="columns small-4 text-center">
+       <h2 class="font-headings clearfix">
+    <a href="#panel2-1" class="active" role="tab" tabindex="0" aria-selected="true" aria-controls="panel2-1">{{ collections.rekomenduem.title }}</a></h2>
+       </div>
+
+  {% endif %}
+  {% if collections.tovary-po-aktsii.products.size > 0 %}
+      <div class="columns small-4 text-center">
+       <h2 class="font-headings clearfix">
+    <a href="#panel2-2" role="tab" tabindex="0" aria-selected="false" aria-controls="panel2-2">{{ collections.tovary-po-aktsii.title }}</a>
+       </h2>
+       </div>
+
+ {% endif %}
+  {% if collections.samye-pokupaemye.products.size > 0 %}
+      <div class="columns small-4 text-center">
+       <h2 class="font-headings clearfix">
+         <a href="#panel2-3" role="tab" tabindex="0" aria-selected="false" aria-controls="panel2-3">
+    {{ collections.samye-pokupaemye.title }}</a>
+        </h2>
+        </div>
+  {% endif %}
+</div>
+<div class="tabs-content">
+{% if collections.rekomenduem.products.size > 0 %}
+
+  
+  <div class="{{ settings.color-icons-theme }} tabpanel active"  role="tabpanel" aria-hidden="false" id="panel2-1">
+    <div class="row content">
+      
+        <div class="product-grid clearfix">
+          {% for product in collections.rekomenduem.products limit: 12%}
+            {% include 'snippet-product-item'%}
+          {% endfor %}
+        </div>
+      
+    </div>
+  </div> 
+{% endif %}
+{% if collections.tovary-po-aktsii.products.size > 0 %}
+
+  
+  <div class="{{ settings.color-icons-theme }} tabpanel" role="tabpanel" aria-hidden="true" id="panel2-2" >
+    <div class="row content">
+      
+        <div class="product-grid clearfix">
+          {% for product in collections.tovary-po-aktsii.products limit: 12%}
+            {% include 'snippet-product-item'%}
+          {% endfor %}
+        </div>
+      
+    </div>
+  </div> 
+{% endif %}
+{% if collections.samye-pokupaemye.products.size > 0 %}
+
+  
+  <div class="{{ settings.color-icons-theme }} tabpanel"  role="tabpanel" aria-hidden="true" id="panel2-3">
+
+    <div class="row content">
+      
+        <div class="product-grid clearfix">
+          {% for product in collections.samye-pokupaemye.products limit: 12%}
+            {% include 'snippet-product-item'%}
+          {% endfor %}
+        </div>
+      
+    </div>
+  </div> 
+{% endif %}
+</div>
+
+<div class="widgets">
+{% if settings.home-featured-promo %}
+  <div class="featured-promo">
+    <div class="row">
+
+      {% assign left_type = settings.home-featured-promo-left-type %}
+      {% assign right_type = settings.home-featured-promo-right-type %}
+
+      {% assign widget_title = settings["home-featured-promo-title"] %}
+      {% assign widget_description = settings["home-featured-promo-description"] %}
+      {% assign widget_link_text = settings["home-featured-promo-link-text"] %}
+      {% assign widget_link_url = settings["home-featured-promo-link-url"] %}
+
+      {% assign widget_media_type = settings["home-featured-promo-type"] %}
+      {% assign widget_image = "home-featured-promo.png" %}
+      {% assign widget_image_link = settings["home-featured-promo-image-link"] %}
+      {% assign widget_alt = settings["home-featured-promo-alt"] %}
+      {% assign widget_vimeo_code = settings["home-featured-promo-video"] %}
+
+      <div class="columns large-6">
+        {% if left_type == 'text'  %}
+
+          {% if widget_title.size > 0 %}
+            <h3 class="title">{{ widget_title }}</h3>
+          {% endif %}
+
+          <div class="description">
+            {{ widget_description | newline_to_br  }}
+            {% if widget_link_text.size > 0 %}
+              <p class="call-to-action">
+                <a class="button" href="{{ widget_link_url }}">{{ widget_link_text }}</a> 
+              <p>
+            {% endif %}
+          </div>
+
+        {% elsif left_type == 'image' %}
+
+          {% if widget_image_link != empty %}
+            <a href="{{widget_image_link}}"><img src="{{widget_image | asset_url}}" alt=""></a>
+          {% else %}
+            <img src="{{widget_image | asset_url}}" alt="">
+          {% endif %}
+
+        {% elsif left_type == 'video' %}
+
+          <div class="vimeo-wrapper">
+            <div class="flex-video">
+              {{ widget_vimeo_code }}
+            </div>
+          </div>
+
+        {% endif %}
+        
+      </div>
+
+      <div class="columns large-6">
+
+        {% if right_type == 'text' %}
+
+          {% if widget_title.size > 0 %}
+            <h3 class="title">{{ widget_title }}</h3>
+          {% endif %}
+
+          <div class="description">
+            {{ widget_description | newline_to_br  }}
+            {% if widget_link_text.size > 0 %}
+              <p class="call-to-action">
+                <a class="button" href="{{ widget_link_url }}">{{ widget_link_text }}</a> 
+              <p>
+            {% endif %}
+          </div>
+
+        {% elsif right_type == 'image' %}
+
+          {% if widget_image_link != empty %}
+		   <a href="{{widget_image_link}}"><img src="{{widget_image | asset_url}}" alt=""></a>
+          {% else %}
+            <img src="{{widget_image | asset_url}}" alt="">
+          {% endif %}
+
+        {% elsif right_type == 'video' %}
+
+          <div class="vimeo-wrapper">
+            <div class="flex-video">
+              {{ widget_vimeo_code }}
+            </div>
+          </div>
+
+        {% endif %}
+      
+      </div>
+
+    </div>
+  </div>
+{% endif %}
+
+{% assign column_count = 0 %}
+{% if settings.home-widget-image-text-1 %}{% assign column_count = column_count | plus: 1 %}{% endif %}
+{% if settings.home-widget-image-text-2 %}{% assign column_count = column_count | plus: 1 %}{% endif %}
+{% if settings.home-widget-image-text-3 %}{% assign column_count = column_count | plus: 1 %}{% endif %}
+{% if settings.home-widget-image-text-4 %}{% assign column_count = column_count | plus: 1 %}{% endif %}
+
+{% if column_count > 0 %}
+  <div class="small-promos">
+    <div class="row">
+      {% assign widget = 'home-widget-image-text-1' %}
+      {% if settings.home-widget-image-text-1 %}
+      <div class="columns large-{{ 12 | divided_by: column_count }}">
+        {% include 'snippet-home-widget' %}
+      </div>
+      {% endif %}
+
+      {% assign widget = 'home-widget-image-text-2' %}
+      {% if settings.home-widget-image-text-2 %}
+      <div class="columns large-{{ 12 | divided_by: column_count }}">
+        {% include 'snippet-home-widget' %}
+      </div>
+      {% endif %}
+
+      {% assign widget = 'home-widget-image-text-3' %}
+      {% if settings.home-widget-image-text-3 %}
+      <div class="columns large-{{ 12 | divided_by: column_count }}">
+        {% include 'snippet-home-widget' %}
+      </div>
+      {% endif %}
+
+      {% assign widget = 'home-widget-image-text-4' %}
+      {% if settings.home-widget-image-text-4 %}
+      <div class="columns large-{{ 12 | divided_by: column_count }}">
+        {% include 'snippet-home-widget' %}
+      </div>
+      {% endif %}
+    </div>
+  </div>
+{% endif %}
+
+{% assign column_count = 0 %}
+{% if settings.home-widget-twitter %}{% assign column_count = column_count | plus: 1 %}{% endif %}
+{% if settings.home-widget-instagram %}{% assign column_count = column_count | plus: 1 %}{% endif %}
+{% if settings.home-widget-blog %}{% assign column_count = column_count | plus: 1 %}{% endif %}
+
+{% if column_count > 0 %}
+  <div class="social-feeds">
+    <div class="row">
+      {% assign widget = 'home-widget-twitter' %}
+      {% if settings.home-widget-twitter %}
+      <div class="columns large-{{ 12 | divided_by: column_count }}">
+        {% include 'snippet-home-widget' %}
+      </div>
+      {% endif %}
+
+      {% assign widget = 'home-widget-instagram' %}
+      
+      {% if settings.home-widget-instagram %}
+      
+      {% include 'snippet-instagram' %}
+      {% endif %}
+
+      {% assign widget = 'home-widget-blog' %}
+      {% if settings.home-widget-blog %}
+      <div class="columns large-{{ 12 | divided_by: column_count }}">
+        {% include 'snippet-home-widget' %}
+      </div>
+      {% endif %}
+    </div>
+  </div>
+  
+{% endif %}
+</div> <!-- .widgets -->
+<div class="columns large-12 category-top__description">
+<div class="row">
+	<div class="title">{{blocks.o-magazine.title}}</div>
+	<div class="mini-wrap">
+		{{blocks.o-magazine.content}}
+
+	</div>
+	
+</div>
+
+</div>

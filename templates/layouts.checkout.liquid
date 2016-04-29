@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang='ru' xml:lang='ru' xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+<meta content='text/html; charset=UTF-8' http-equiv='Content-Type'>
+<meta name="viewport" content="width=device-width" />  
+<meta content='noindex, nofollow' name='robots'>
+<title>{% yield 'title' %}</title>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+{{ 'checkout' | global_javascript_tag }}
+{% assign customer_checkout_css = 'custom_checkout.css' | asset_url %}
+{% if customer_checkout_css %}
+<link href='{{ customer_checkout_css }}' rel='stylesheet'>
+{% endif %}
+{% if settings.general-favicon-enabled %}<link rel="shortcut icon" type="image/png" href="{{ 'favicon.png' | asset_url }}" />{% endif %}
+</head>
+<body>
+	<div id="header-content" style="position: relative;">
+		<nav id="menu" class="container black">
+			<div class="col-md-12 off-position">
+				<a href="\" id="logo">Kosmo</a>
+				<span id="phone"></span>
+			</div>
+          	{% if client %}
+			<div id="navigation">
+				<ul>
+					<li><a href='/client_account/contacts'>Контактные данные</a></li>
+                  	<li><a href='/client_account/addresses'>Адрес доставки</a></li>
+                  	<li><a href='/client_account/orders'>Заказы и скидки</a></li>
+                  	<li><a href='/client_account/feedback'>Обратная связь</a></li>
+                  	<li><a href='/client_account/exit'>Выход ({{ client.full_name }})</a></li>
+
+                  	
+				</ul>
+			</div>
+
+			<div id="hamburger-button">
+				<span class="line"></span>
+				<span class="line"></span>
+				<span class="line"></span>
+				<span>Меню</span>
+			</div>
+          	{% endif %}
+		</nav><!-- END NAVIGATION -->
+	</div><!-- END HEADER CONTENT -->
+	<main id="order">
+    	<div class="container">
+<div class="col-md-12 main padding-null">
+
+
+<h2>{% yield 'title' %}</h2>
+{% yield 'flash_messages' %}
+<div id='top_info'>{% yield 'top_info' %}</div>
+{% yield %}
+</div>
+<div class="col-md-5 sidebar">
+<div class="title">Заказ</div>
+{% yield 'sidebar' %}
+  
+</div>
+</div>
+</main>
+</body>
+<script type="text/javascript">
+  if ($(".sidebar").find('.set-sidebar').length > 0) {
+    $(".sidebar").show();
+  	$(".main").removeClass("col-md-12");
+    $(".main").addClass("col-md-7");
+  }
+$(document).ready(function(){
+  $('#regular_client').parent().css("float", "none");
+  console.log($('#regular_client'));  
+  $(window).resize(resizeCover);
+  
+  // Function for resize cover
+  function resizeCover(){
+    var widthCover = $(window).width(),
+        heightCover = $(window).height();
+
+    $('span.cover').css({
+      width: widthCover,
+      height: heightCover
+    });
+  };
+
+  // Autostart function after loading page
+  resizeCover();
+  
+  $('input.textfield').on('focus', function(){
+  	$(this).parents('.field').addClass('focus');
+  });
+  $('input.textfield').on('focusout', function(){
+  	$(this).parents('.field').removeClass('focus');
+  });
+  
+
+  // Hamburger menu
+
+  $(document).on('click', '#hamburger-button', function(){
+  	$('body').toggleClass('active');
+  });
+}); 
+</script>
+</html>
+

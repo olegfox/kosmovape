@@ -1,0 +1,23 @@
+<div class="menu">
+  {% if settings.header-search-show %}
+    <a class="searchbar-open" href="#">Поиск<span aria-hidden="true" class="glyph search"></span></a>
+  {% endif %}
+  {% if settings.header-account-show and shop.customer_accounts_enabled %}
+    <a class="account-open"href="#">Личный кабинет<span aria-hidden="true" class="glyph account"></span></a>
+  {% endif %}
+</div>
+<div class="searchbar-container">
+  <form  action="/search" method="get" role="search"> 
+    <input name="q" type="text" placeholder="Поиск по каталогу" class="search-box hint text" />
+    <button class="glyph search"></button>
+  </form>
+  <a href="#" aria-hidden="true" class="searchbar-close glyph cross"></a>
+</div>
+<div class="account-container">
+  {% if client %}
+    <a href="/account">View Account (Logged in as {{ customer.first_name }})</a> <span class="separator">|</span> {{ "Logout" | customer_logout_link }}
+  {% else %}
+  <a href="">Вход</a> или <a href="">Регистрация</a>
+  {% endif %}
+  <a href="#" aria-hidden="true" class="account-close glyph cross"></a>
+</div>

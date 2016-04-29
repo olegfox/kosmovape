@@ -1,0 +1,66 @@
+<header class="row">
+  <div class="columns">
+    <h1 class="page-title">Корзина</h1>
+  </div>
+</header>
+{% if cart.items != empty %}
+<form action="/cart_items" method="post" id="cartform" class="custom">
+  <input type="hidden" value="put" name="_method">
+  <input type="hidden" name="lang" value="{{ language.locale }}">
+  <div class="row">
+    <div class="columns">
+      <table width="100%" class="cart-table">
+        <thead>
+          <tr>
+            <th class="image">&nbsp;</th>
+            <th class="title">&nbsp;</th>
+            <th class="quantity">Кол-во</th>
+            <th class="total">Всего</th>
+            <th class="remove">&nbsp;</th>
+          </tr>
+        </thead>
+        <tbody>
+        {% for item in cart.items %}
+        <tr class="cart_row">
+          <td class="image">
+            <a href="{{ item.product.url }}">  
+              <img src="{{ item.product.first_image.thumb_url }}" alt="{{ item.title | escape }}" />
+            </a>
+            <p class="mobile-title"><a href="{{ item.product.url }}">{{ item.title }}</a></p>
+          </td>
+          <td class="title">
+            <p><a href="{{ item.product.url }}">{{ item.title }}</a></p>
+          </td>
+          <td class="quantity"><input type="text" class="qty field styled-input" autocomplete="off" price="{{ item.sale_price }}" name="cart[quantity][{{ item.id }}]" value="{{ item.quantity }}" /></td>
+          <td class="total">{{ item.sale_price | money }}</td>
+          <td class="remove"> <a href="{{ item.url }}" id="delete_{{ item.id }}" aria-hidden="true" class="glyph cross del" title="Удалить с корзины">&nbsp;</a></td>
+        </tr>
+        {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>  
+  <div class="row">
+    <div class="columns large-5 show-for-medium-up"> 
+		<div class="continue-shopping show-for-medium-up"><span><a href="/collection/all"><span aria-hidden="true" class="glyph arrow-left"></span> Продолжить покупки</a></span></div>
+    </div>
+    <div class="columns large-7">
+      <div class="totals columns">
+        <h3><strong>Всего к оплате: <span class="cart-total">{{ cart.total_price | money }}</span></strong></h3> 
+        <input class="button" name="make_order" type="submit" id="create_order" value="Оформить заказ" /> 
+		 <div class="continue-shopping continue-shopping-go columns show-for-small columns">
+      <span><a href="/collection/all"><span aria-hidden="true" class="glyph arrow-left"></span> Продолжить покупки</a></span>
+    </div>
+      </div>
+    </div>
+  </div>  
+</form>
+<script>$(function(){checkout();})</script>
+{% else %}
+<section class="empty-cart row colored-links">
+  <div class="columns">
+    <h1>В корзине нет товаров.</h1>
+    <h2><a href="/collection/all">Продолжить покупки</a>.</h2>
+  </div>
+</section> 
+{% endif %}  
